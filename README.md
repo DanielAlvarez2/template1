@@ -1,1 +1,2 @@
-PORT 9991/9992
+PORT 9991/9992  
+db name: template1  
