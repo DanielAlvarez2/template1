@@ -31,4 +31,48 @@ app.post('/api/dinner', async(req,res)=>{
         console.log(err)
     }
 })
+app.delete('/api/dinner/:id',async(req,res)=>{
+    try{
+        await Dinner.findByIdAndDelete(req.params.id)
+        console.log(`Item Deleted from Database`)
+        res.json(`Item Deleted from Database`)
+    }catch(err){
+        console.log(err)
+    }
+})
+app.get('/api/dinner',async(req,res)=>{
+    try{
+        const allDinner = await Dinner.find()
+        console.log(`
+            All Items From Dinner Menu: 
+            ${allDinner}`)
+        res.json(allDinner)
+    }catch(err){
+        console.log(err)
+    }
+})
+app.get('/api/dinner/:id', async(req,res)=>{
+    try{
+        const dinner = await Dinner.findById(req.params.id)
+        console.log(dinner)
+        res.json(dinner)
+    }catch(err){
+        console.log(err)
+    }
+})
+app.put('/api/dinner/:id', async(req,res)=>{
+    try{
+        await Dinner.findByIdAndUpdate({_id:req.params.id},{
+            section:req.body.section,
+            name:req.body.name,
+            allergies:req.body.allergies,
+            description:req.body.description,
+            price:req.body.price
+        })
+        console.log(`Updated in Database: ${req.body.name}`)
+        res.json(`Updated in Database: ${req.body.name}`)
+    }catch(err){
+        console.log(err)
+    }
+})
 
