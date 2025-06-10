@@ -69,40 +69,41 @@ export default function App(){
         <label>
           Section:
           <input id='section' name='section' placeholder='Section' type='text' />
-        </label>
+        </label><br/>
         <label>
           Name:
           <input id='name' name='name' placeholder='Name' type='text' />
-        </label>
+        </label><br/>
         <label>
           Allergies:
           <input id='allergies' name='allergies' placeholder='allergies' type='text' />
-        </label>
+        </label><br/>
         <label>
           Description:
           <input id='description' name='description' placeholder='Description' type='text' />
-        </label>
+        </label><br/>
         <label>
           Price:
           <input id='price' name='price' placeholder='Price' type='text' />
-        </label>
-        <button style={editForm?{background:'blue'}:{background:'black'}}>
+        </label><br/>
+        <button style={editForm?{background:'blue'}:{background:'black',color:'white'}}>
           {editForm?<><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Item</>}
-        </button>
+        </button><br/><br/>
       </form>
 
       {dinnerItems.map(data=>{
         return(
           <div key={data._id}>
-            {data.section}
-            {data.name}
-            {data.allergies}
-            {data.description}
-            {data.price}
+            {data.section}<br/>
+            {data.name}<br/>
+            {data.allergies}<br/>
+            {data.description}<br/>
+            {data.price}<br/>
             <i  className='fa-solid fa-trash-can'
                 onClick={()=>deleteDinnerItem(data._id)}></i>
             <i  className='fa-solid fa-pen'
                 onClick={()=>updateForm(data._id,data.section,data.name,data.allergies,data.description,data.price)}></i>
+            <br/><br/>
           </div>
         )
       })}
