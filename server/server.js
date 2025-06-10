@@ -23,7 +23,8 @@ app.post('/api/dinner', async(req,res)=>{
             name:req.body.name,
             allergies:req.body.allergies,
             description:req.body.description,
-            price:req.body.price
+            price:req.body.price,
+            sequence:req.body.sequence
         })
         console.log(`Added to Database: ${req.body.name}`)
         res.json(`Added to Database: ${req.body.name}`)
@@ -67,7 +68,8 @@ app.put('/api/dinner/:id', async(req,res)=>{
             name:req.body.name,
             allergies:req.body.allergies,
             description:req.body.description,
-            price:req.body.price
+            price:req.body.price,
+            sequence:req.body.sequence
         })
         console.log(`Updated in Database: ${req.body.name}`)
         res.json(`Updated in Database: ${req.body.name}`)

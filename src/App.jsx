@@ -28,7 +28,8 @@ export default function App(){
                                   name: formData.get('name'),
                                   allergies: formData.get('allergies'),
                                   description: formData.get('description'),
-                                  price: formData.get('price')
+                                  price: formData.get('price'),
+                                  sequence: formData.get('sequence')
                                 })
     })
       .then(console.log('Added to Database'))
@@ -43,7 +44,8 @@ export default function App(){
                                                         name: formData.get('name'),
                                                         allergies: formData.get('allergies'),
                                                         description: formData.get('description'),
-                                                        price: formData.get('price')
+                                                        price: formData.get('price'),
+                                                        sequence: formData.get('sequence')
                                                       })
     })
       .then(console.log(`Updated: ${formData.get('name')}`))
@@ -59,6 +61,7 @@ export default function App(){
     document.querySelector('#allergies').value = allergies
     document.querySelector('#description').value = description
     document.querySelector('#price').value = price
+    document.querySelector('#sequence').value = sequence
     setEditForm(true)
   }
 
@@ -79,30 +82,46 @@ export default function App(){
           <input id='allergies' name='allergies' placeholder='allergies' type='text' />
         </label><br/>
         <label>
-          Description:
-          <input id='description' name='description' placeholder='Description' type='text' />
+          Description:<br/>
+          <textarea id='description' 
+                    name='description' 
+                    placeholder='Description'
+                    cols='30'
+                    rows='5'></textarea>
+          
         </label><br/>
         <label>
           Price:
           <input id='price' name='price' placeholder='Price' type='text' />
         </label><br/>
-        <button style={editForm?{background:'blue'}:{background:'black',color:'white'}}>
+        <label>
+          Sequence:
+          <input id='sequence' name='sequence' placeholder='Sequence' type='text' />
+        </label><br/>
+        <button style={editForm?{background:'blue',color:'white'}:{background:'black',color:'white'}}>
           {editForm?<><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Item</>}
         </button><br/><br/>
       </form>
 
       {dinnerItems.map(data=>{
         return(
-          <div key={data._id}>
+          <div key={data._id} style={{width:'40ch'}}>
             {data.section}<br/>
             {data.name}<br/>
             {data.allergies}<br/>
             {data.description}<br/>
             {data.price}<br/>
+            {data.sequence}<br/>
             <i  className='fa-solid fa-trash-can'
                 onClick={()=>deleteDinnerItem(data._id)}></i>
             <i  className='fa-solid fa-pen'
-                onClick={()=>updateForm(data._id,data.section,data.name,data.allergies,data.description,data.price)}></i>
+                onClick={()=>updateForm(data._id,
+                                        data.section,
+                                        data.name,
+                                        data.allergies,
+                                        data.description,
+                                        data.price,
+                                        data.sequence)}></i>
             <br/><br/>
           </div>
         )

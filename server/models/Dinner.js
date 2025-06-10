@@ -4,6 +4,7 @@ const DinnerSchema = new mongoose.Schema({
     name:{type:String},
     allergies:{type:String},
     description:{type:String},
-    price:{type:String}
+    price:{type:String},
+    sequence:{type:String}
 },{timestamps:true})
 export default mongoose.model('Dinner', DinnerSchema)
