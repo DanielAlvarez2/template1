@@ -103,7 +103,7 @@ export default function App(){
         </button><br/><br/>
       </form>
 
-      {dinnerItems.map(data=>{
+      {dinnerItems.filter(item=>item.section == 'meats').map(data=>{
         return(
           <div key={data._id} style={{width:'40ch'}}>
             {data.section}<br/>
@@ -126,6 +126,33 @@ export default function App(){
           </div>
         )
       })}
+    
+
+
+    {dinnerItems.filter(item=>item.section == 'appetizers').map(data=>{
+        return(
+          <div key={data._id} style={{width:'40ch'}}>
+            {data.section}<br/>
+            {data.name}<br/>
+            {data.allergies}<br/>
+            {data.description}<br/>
+            {data.price}<br/>
+            {data.sequence}<br/>
+            <i  className='fa-solid fa-trash-can'
+                onClick={()=>deleteDinnerItem(data._id)}></i>
+            <i  className='fa-solid fa-pen'
+                onClick={()=>updateForm(data._id,
+                                        data.section,
+                                        data.name,
+                                        data.allergies,
+                                        data.description,
+                                        data.price,
+                                        data.sequence)}></i>
+            <br/><br/>
+          </div>
+        )
+      })}
+
     </>
   )
 }

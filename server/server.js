@@ -43,7 +43,7 @@ app.delete('/api/dinner/:id',async(req,res)=>{
 })
 app.get('/api/dinner',async(req,res)=>{
     try{
-        const allDinner = await Dinner.find()
+        const allDinner = await Dinner.find().sort({sequence:1})
         console.log(`
             All Items From Dinner Menu: 
             ${allDinner}`)
