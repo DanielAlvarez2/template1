@@ -67,41 +67,6 @@ export default function App(){
 
   return(
     <>
-      <form action={editForm?updateDinnerItem:addDinnerItem}>
-        <input type='hidden' id='id' name='id' value={hiddenID} />
-        <label>
-          Section:
-          <input id='section' name='section' placeholder='Section' type='text' />
-        </label><br/>
-        <label>
-          Name:
-          <input id='name' name='name' placeholder='Name' type='text' />
-        </label><br/>
-        <label>
-          Allergies:
-          <input id='allergies' name='allergies' placeholder='allergies' type='text' />
-        </label><br/>
-        <label>
-          Description:<br/>
-          <textarea id='description' 
-                    name='description' 
-                    placeholder='Description'
-                    cols='30'
-                    rows='5'></textarea>
-          
-        </label><br/>
-        <label>
-          Price:
-          <input id='price' name='price' placeholder='Price' type='text' />
-        </label><br/>
-        <label>
-          Sequence:
-          <input id='sequence' name='sequence' placeholder='Sequence' type='text' />
-        </label><br/>
-        <button style={editForm?{background:'blue',color:'white'}:{background:'black',color:'white'}}>
-          {editForm?<><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Item</>}
-        </button><br/><br/>
-      </form>
 
 
     <div class='dinnerMenu'>
@@ -223,6 +188,44 @@ export default function App(){
 
   </div>{/* sides */}
   </div>{/* dinnerMenu */}
+ 
+ 
+  <form action={editForm?updateDinnerItem:addDinnerItem}>
+        <input type='hidden' id='id' name='id' value={hiddenID} />
+        <label>
+          Section:
+          <input id='section' name='section' placeholder='Section' type='text' />
+        </label><br/>
+        <label>
+          Name:
+          <input id='name' name='name' placeholder='Name' type='text' />
+        </label><br/>
+        <label>
+          Allergies:
+          <input id='allergies' name='allergies' placeholder='allergies' type='text' />
+        </label><br/>
+        <label>
+          Description:<br/>
+          <textarea id='description' 
+                    name='description' 
+                    placeholder='Description'
+                    cols='30'
+                    rows='5'></textarea>
+          
+        </label><br/>
+        <label>
+          Price:
+          <input id='price' name='price' placeholder='Price' type='text' />
+        </label><br/>
+        <label>
+          Sequence:
+          <input id='sequence' name='sequence' placeholder='Sequence' type='text' />
+        </label><br/>
+        <button style={editForm?{background:'blue',color:'white'}:{background:'black',color:'white'}}>
+          {editForm?<><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Item</>}
+        </button><br/><br/>
+      </form>
+
     </>
   )
 }
