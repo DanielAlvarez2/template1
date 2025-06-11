@@ -103,12 +103,14 @@ export default function App(){
         </button><br/><br/>
       </form>
 
+
+    <div class='dinnerMenu'>
     <div class='appetizersEntrees'>
       <div class='appetizers'>
 
       {dinnerItems.filter(item=>item.section == 'meats').map(data=>{
         return(
-          <div key={data._id} style={{width:'40ch'}}>
+          <div key={data._id} className='item'>
             {data.section}<br/>
             {data.name}<br/>
             {data.allergies}<br/>
@@ -134,7 +136,7 @@ export default function App(){
 
     {dinnerItems.filter(item=>item.section == 'appetizers').map(data=>{
         return(
-          <div key={data._id} style={{width:'40ch'}}>
+          <div key={data._id} className='item'>
             {data.section}<br/>
             {data.name}<br/>
             {data.allergies}<br/>
@@ -160,7 +162,7 @@ export default function App(){
       <div id='entrees'>
       {dinnerItems.filter(item=>item.section == 'entrees').map(data=>{
         return(
-          <div key={data._id} style={{width:'40ch'}}>
+          <div key={data._id} className='item'>
             {data.section}<br/>
             {data.name}<br/>
             {data.allergies}<br/>
@@ -182,10 +184,45 @@ export default function App(){
         )
       })}
 
+      <div className='item'>
+        chef's tasting menu six courses 105 / person<br/>
+        48-hours notice and reservation required<br/>
+        full table participation<br/>
+        available tuesday through thursday<br/>
+        optional wine pairing available 52 / person<br/>
+      </div>
       </div>{/* entrees */}
 
   </div>{/* appetizersEntrees */}
 
+  <h2>sides</h2>
+  <div class='sides'>
+  {dinnerItems.filter(item=>item.section == 'sides').map(data=>{
+        return(
+          <div key={data._id} className='item'>
+            {data.section}<br/>
+            {data.name}<br/>
+            {data.allergies}<br/>
+            {data.description}<br/>
+            {data.price}<br/>
+            {data.sequence}<br/>
+            <i  className='fa-solid fa-trash-can'
+                onClick={()=>deleteDinnerItem(data._id)}></i>
+            <i  className='fa-solid fa-pen'
+                onClick={()=>updateForm(data._id,
+                                        data.section,
+                                        data.name,
+                                        data.allergies,
+                                        data.description,
+                                        data.price,
+                                        data.sequence)}></i>
+            <br/><br/>
+          </div>
+        )
+      })}
+
+  </div>{/* sides */}
+  </div>{/* dinnerMenu */}
     </>
   )
 }

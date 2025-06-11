@@ -1,6 +1,18 @@
 button{
   color:white;
 }
+.dinnerMenu{
+  width:8.5in;
+  border:1px solid red;
+}
+.item{
+  width:4.25in;
+}
 .appetizersEntrees{
   display:flex;
+}
+.sides{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
