@@ -1,3 +1,6 @@
 button{
   color:white;
 }
+.appetizersEntrees{
+  display:flex;
+}
