@@ -1,9 +1,37 @@
+@font-face{
+  font-family: 'FuturaLight';
+  src:url('./assets/fonts/FuturaLight.otf') format(opentype);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 button{
   color:white;
 }
+h1{
+  font-size: 55px;
+  font-weight: 100;
+  font-family: FuturaLight;
+  position: relative;
+  left:22px;
+  bottom:4px;
+  letter-spacing: 1px;
+}
 .dinnerMenu{
+  padding: 20px 40px;
   width:8.5in;
   border:1px solid red;
+  background-image: url('olea-scan-dinner.jpg');
+  background-size: 8.5in 14in;
+  background-repeat: no-repeat;
+}
+hr{
+  position: relative;
+  bottom: 7px;;
 }
 .item{
   width:4.25in;

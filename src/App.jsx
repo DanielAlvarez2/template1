@@ -68,8 +68,9 @@ export default function App(){
   return(
     <>
 
-
     <div class='dinnerMenu'>
+    <h1>olea</h1>
+    <hr/>
     <div class='appetizersEntrees'>
       <div class='appetizers'>
 
