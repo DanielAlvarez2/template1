@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: serif;
 }
 
 button{
@@ -31,10 +32,21 @@ h1{
 }
 hr{
   position: relative;
-  bottom: 7px;;
+  bottom: 7px;
+  margin-bottom: 30px;
 }
 .item{
-  width:4.25in;
+  color:red;
+  border:1px solid green;
+  padding:2px 14px;
+  letter-spacing: -0.3px;
+}
+.appetizers,
+.entrees{
+  flex:1;
+}
+.sides .item{
+  width:50%;
 }
 .appetizersEntrees{
   display:flex;
@@ -43,4 +55,9 @@ hr{
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.name{
+  font-family: FuturaLight;
+  font-weight: 900;
+  font-size: 18px;
 }

@@ -71,17 +71,15 @@ export default function App(){
     <div class='dinnerMenu'>
     <h1>olea</h1>
     <hr/>
-    <div class='appetizersEntrees'>
-      <div class='appetizers'>
+    <div className='appetizersEntrees'>
+      <div className='appetizers'>
 
       {dinnerItems.filter(item=>item.section == 'meats').map(data=>{
         return(
           <div key={data._id} className='item'>
-            {data.section}<br/>
-            {data.name}<br/>
-            {data.allergies}<br/>
-            {data.description}<br/>
-            {data.price}<br/>
+            <span className='name'>{data.name}</span>
+            {data.allergies ? ` (${data.allergies})` : ''}<br/>
+            {data.description}  {data.price}<br/>
             {data.sequence}<br/>
             <i  className='fa-solid fa-trash-can'
                 onClick={()=>deleteDinnerItem(data._id)}></i>
@@ -103,11 +101,9 @@ export default function App(){
     {dinnerItems.filter(item=>item.section == 'appetizers').map(data=>{
         return(
           <div key={data._id} className='item'>
-            {data.section}<br/>
-            {data.name}<br/>
-            {data.allergies}<br/>
-            {data.description}<br/>
-            {data.price}<br/>
+            <span className='name'>{data.name}</span>
+            {data.allergies ? ` (${data.allergies})` : ''}<br/>
+            {data.description}  {data.price}<br/>
             {data.sequence}<br/>
             <i  className='fa-solid fa-trash-can'
                 onClick={()=>deleteDinnerItem(data._id)}></i>
@@ -125,15 +121,13 @@ export default function App(){
       })}
       </div>{/* appetizers */}
 
-      <div id='entrees'>
+      <div className='entrees'>
       {dinnerItems.filter(item=>item.section == 'entrees').map(data=>{
         return(
           <div key={data._id} className='item'>
-            {data.section}<br/>
-            {data.name}<br/>
-            {data.allergies}<br/>
-            {data.description}<br/>
-            {data.price}<br/>
+            <span className='name'>{data.name}</span>
+            {data.allergies ? ` (${data.allergies})` : ''}<br/>
+            {data.description}  {data.price}<br/>
             {data.sequence}<br/>
             <i  className='fa-solid fa-trash-can'
                 onClick={()=>deleteDinnerItem(data._id)}></i>
@@ -166,11 +160,9 @@ export default function App(){
   {dinnerItems.filter(item=>item.section == 'sides').map(data=>{
         return(
           <div key={data._id} className='item'>
-            {data.section}<br/>
-            {data.name}<br/>
-            {data.allergies}<br/>
-            {data.description}<br/>
-            {data.price}<br/>
+            <span className='name'>{data.name}</span>
+            {data.allergies ? ` (${data.allergies})` : ''}<br/>
+            {data.description}  {data.price}<br/>
             {data.sequence}<br/>
             <i  className='fa-solid fa-trash-can'
                 onClick={()=>deleteDinnerItem(data._id)}></i>
