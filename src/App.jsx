@@ -14,8 +14,11 @@ export default function App(){
     setEditMode(!editMode)
     if(editMode){
       document.querySelector('.toggle-icon').style.transform = 'rotate(180deg)'
+      document.querySelectorAll('.edit-controls').forEach(item=>item.style.display = 'none')
     }else{
       document.querySelector('.toggle-icon').style.transform = 'rotate(0deg)'
+      document.querySelectorAll('.edit-controls').forEach(item=>item.style.display = 'block')
+      
     }
   }
   const getDinnerItems = ()=>{
@@ -91,18 +94,19 @@ export default function App(){
             <span className='name'>{data.name}</span>
             {data.allergies ? ` (${data.allergies})` : ''}<br/>
             {data.description}  {data.price}<br/>
-            {data.sequence}<br/>
-            <i  className='fa-solid fa-trash-can'
-                onClick={()=>deleteDinnerItem(data._id)}></i>
-            <i  className='fa-solid fa-pen'
-                onClick={()=>updateForm(data._id,
-                                        data.section,
-                                        data.name,
-                                        data.allergies,
-                                        data.description,
-                                        data.price,
-                                        data.sequence)}></i>
-            <br/><br/>
+            <div className='edit-controls'>
+              {data.sequence}<br/>
+              <i  className='fa-solid fa-trash-can'
+                  onClick={()=>deleteDinnerItem(data._id)}></i>
+              <i  className='fa-solid fa-pen'
+                  onClick={()=>updateForm(data._id,
+                                          data.section,
+                                          data.name,
+                                          data.allergies,
+                                          data.description,
+                                          data.price,
+                                          data.sequence)}></i>
+            </div>{/* edit-controls */}
           </div>
         )
       })}
@@ -115,18 +119,19 @@ export default function App(){
             <span className='name'>{data.name}</span>
             {data.allergies ? ` (${data.allergies})` : ''}<br/>
             {data.description}  {data.price}<br/>
-            {data.sequence}<br/>
-            <i  className='fa-solid fa-trash-can'
-                onClick={()=>deleteDinnerItem(data._id)}></i>
-            <i  className='fa-solid fa-pen'
-                onClick={()=>updateForm(data._id,
-                                        data.section,
-                                        data.name,
-                                        data.allergies,
-                                        data.description,
-                                        data.price,
-                                        data.sequence)}></i>
-            <br/><br/>
+            <div className='edit-controls'>
+              {data.sequence}<br/>
+              <i  className='fa-solid fa-trash-can'
+                  onClick={()=>deleteDinnerItem(data._id)}></i>
+              <i  className='fa-solid fa-pen'
+                  onClick={()=>updateForm(data._id,
+                                          data.section,
+                                          data.name,
+                                          data.allergies,
+                                          data.description,
+                                          data.price,
+                                          data.sequence)}></i>
+            </div>{/* edit-controls */}
           </div>
         )
       })}
@@ -139,18 +144,19 @@ export default function App(){
             <span className='name'>{data.name}</span>
             {data.allergies ? ` (${data.allergies})` : ''}<br/>
             {data.description}  {data.price}<br/>
-            {data.sequence}<br/>
-            <i  className='fa-solid fa-trash-can'
-                onClick={()=>deleteDinnerItem(data._id)}></i>
-            <i  className='fa-solid fa-pen'
-                onClick={()=>updateForm(data._id,
-                                        data.section,
-                                        data.name,
-                                        data.allergies,
-                                        data.description,
-                                        data.price,
-                                        data.sequence)}></i>
-            <br/><br/>
+            <div className='edit-controls'>
+              {data.sequence}<br/>
+              <i  className='fa-solid fa-trash-can'
+                  onClick={()=>deleteDinnerItem(data._id)}></i>
+              <i  className='fa-solid fa-pen'
+                  onClick={()=>updateForm(data._id,
+                                          data.section,
+                                          data.name,
+                                          data.allergies,
+                                          data.description,
+                                          data.price,
+                                          data.sequence)}></i>
+            </div>{/* edit-controls */}            
           </div>
         )
       })}
@@ -174,18 +180,19 @@ export default function App(){
             <span className='name'>{data.name}</span>
             {data.allergies ? ` (${data.allergies})` : ''}<br/>
             {data.description}  {data.price}<br/>
-            {data.sequence}<br/>
-            <i  className='fa-solid fa-trash-can'
-                onClick={()=>deleteDinnerItem(data._id)}></i>
-            <i  className='fa-solid fa-pen'
-                onClick={()=>updateForm(data._id,
-                                        data.section,
-                                        data.name,
-                                        data.allergies,
-                                        data.description,
-                                        data.price,
-                                        data.sequence)}></i>
-            <br/><br/>
+            <div className='edit-controls'>
+              {data.sequence}<br/>
+              <i  className='fa-solid fa-trash-can'
+                  onClick={()=>deleteDinnerItem(data._id)}></i>
+              <i  className='fa-solid fa-pen'
+                  onClick={()=>updateForm(data._id,
+                                          data.section,
+                                          data.name,
+                                          data.allergies,
+                                          data.description,
+                                          data.price,
+                                          data.sequence)}></i>
+            </div>{/* edit-controls */}
           </div>
         )
       })}
