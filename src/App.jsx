@@ -4,10 +4,20 @@ import {VscSave} from 'react-icons/vsc'
 import { MdOutlineToggleOff } from "react-icons/md"
 
 export default function App(){
+  const [editMode, setEditMode] = useState(true)
   const [editForm, setEditForm] = useState(false)
   const [dinnerItems, setDinnerItems] = useState([])
   const [hiddenID, setHiddenID] = useState('')
   const [submitText, setSubmitText] = useState(<FaPlusCircle />)
+  
+  function flipSwitch(){
+    setEditMode(!editMode)
+    if(editMode){
+      document.querySelector('.toggle-icon').style.transform = 'rotate(180deg)'
+    }else{
+      document.querySelector('.toggle-icon').style.transform = 'rotate(0deg)'
+    }
+  }
   const getDinnerItems = ()=>{
     fetch('/api/dinner')
       .then(res=>res.json())
@@ -184,7 +194,7 @@ export default function App(){
   </div>{/* dinnerMenu */}
  
 
- <div class='toggle'>Edit Mode <MdOutlineToggleOff className='toggle-icon' /> Print Preview </div>
+ <div class='toggle'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
  
   <form action={editForm?updateDinnerItem:addDinnerItem}>
         <input type='hidden' id='id' name='id' value={hiddenID} />
