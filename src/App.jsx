@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {FaPlusCircle} from 'react-icons/fa'
 import {VscSave} from 'react-icons/vsc'
+import { MdOutlineToggleOff } from "react-icons/md"
 
 export default function App(){
   const [editForm, setEditForm] = useState(false)
@@ -182,6 +183,8 @@ export default function App(){
   </div>{/* sides */}
   </div>{/* dinnerMenu */}
  
+
+ <div class='toggle'>Edit Mode <MdOutlineToggleOff className='toggle-icon' /> Print Preview </div>
  
   <form action={editForm?updateDinnerItem:addDinnerItem}>
         <input type='hidden' id='id' name='id' value={hiddenID} />

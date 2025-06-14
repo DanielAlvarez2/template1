@@ -61,3 +61,14 @@ hr{
   font-weight: 900;
   font-size: 18px;
 }
+.toggle{
+  display:flex;
+  align-items: center;
+  width:8.5in;
+  justify-content: center;
+  gap:10px;
+}
+.toggle-icon{
+  font-size:30px;
+  cursor:pointer;
+}
