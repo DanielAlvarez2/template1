@@ -203,6 +203,7 @@ export default function App(){
 
  <div class='toggle'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
  
+ <div className='edit-controls'>
   <form action={editForm?updateDinnerItem:addDinnerItem}>
         <input type='hidden' id='id' name='id' value={hiddenID} />
         <label>
@@ -238,6 +239,7 @@ export default function App(){
           {editForm?<><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Item</>}
         </button><br/><br/>
       </form>
+    </div>{/* edit-controls */}
 
     </>
   )
