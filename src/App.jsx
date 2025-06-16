@@ -173,11 +173,11 @@ export default function App(){
       })}
 
       <div className='item chefs-tasting-menu'>
-        chef's tasting menu six courses 105 / person<br/>
-        48-hours notice and reservation required<br/>
+        <span className='name'>chef's tasting menu </span> <span style={{fontStyle:'italic'}}>six courses <strong>105</strong> / person<br/>
+        <strong>48-hours notice and reservation required</strong></span><br/>
         full table participation<br/>
         available tuesday through thursday<br/>
-        optional wine pairing available 52 / person<br/>
+        <span style={{fontStyle:'italic'}}>optional wine pairing available <strong>52</strong> / person</span><br/>
       </div>
       </div>{/* entrees */}
 

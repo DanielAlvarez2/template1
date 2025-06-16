@@ -25,7 +25,7 @@ h1{
 .dinnerMenu{
   padding: 20px 40px;
   width:8.5in;
-  min-height: 14in;
+  height: 14in;
   border:1px solid red;
   /* background-image: url('/olea-scan-dinner.jpg'); */
   background-size: 8.5in 14in;
@@ -38,7 +38,7 @@ hr{
 }
 .item,
 .sides-heading{
-  padding:8px 14px;
+  padding:9px 14px;
   letter-spacing: -0.3px;
 }
 
@@ -115,4 +115,8 @@ hr{
 .sides,
 .chefs-tasting-menu{
   border: 1px solid black;
+}
+.chefs-tasting-menu{
+  font-family:serif;
+
 }
