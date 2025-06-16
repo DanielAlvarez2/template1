@@ -214,7 +214,7 @@ export default function App(){
   </div>{/* .sides */}
   <div className='dinner-menu-footer'>
       <div className='chef'>manuel romero, chef</div>
-      <div>QR Code</div>
+      <div><img src='/QR1.png' width='70px' /></div>
       <div className='legal-info'>
         consumer advisory: consumption of undercooked meat, poultry, eggs, or seafood may increase the risk of food-borne illnesses<br/>
         all menu items are subject to change according to seasonality and availability<br/>
