@@ -27,7 +27,7 @@ h1{
   width:8.5in;
   min-height: 14in;
   border:1px solid red;
-  background-image: url('/olea-scan-dinner.jpg');
+  /* background-image: url('/olea-scan-dinner.jpg'); */
   background-size: 8.5in 14in;
   background-repeat: no-repeat;
 }
@@ -38,8 +38,6 @@ hr{
 }
 .item,
 .sides-heading{
-  color:red;
-  border:1px solid green;
   padding:8px 14px;
   letter-spacing: -0.3px;
 }
@@ -112,4 +110,9 @@ hr{
 }
 .dinner-menu-footer{
   padding-top: 14px;
+}
+.meats,
+.sides,
+.chefs-tasting-menu{
+  border: 1px solid black;
 }

@@ -89,7 +89,7 @@ export default function App(){
     <hr/>
     <div className='appetizersEntrees'>
       <div className='appetizers'>
-
+      <div className='meats'>
       {dinnerItems.filter(item=>item.section == 'meats').map(data=>{
         return(
           <div key={data._id} className='item'>
@@ -115,7 +115,7 @@ export default function App(){
           </div>
         )
       })}
-    
+    </div>{/* .meats */}
 
 
     {dinnerItems.filter(item=>item.section == 'appetizers').map(data=>{
@@ -172,7 +172,7 @@ export default function App(){
         )
       })}
 
-      <div className='item'>
+      <div className='item chefs-tasting-menu'>
         chef's tasting menu six courses 105 / person<br/>
         48-hours notice and reservation required<br/>
         full table participation<br/>
@@ -211,7 +211,7 @@ export default function App(){
         )
       })}
 
-  </div>{/* sides */}
+  </div>{/* .sides */}
   <div className='dinner-menu-footer'>
       <div className='chef'>manuel romero, chef</div>
       <div>QR Code</div>
