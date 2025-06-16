@@ -57,6 +57,7 @@ export default function App(){
                                                         section: formData.get('section'),
                                                         name: formData.get('name'),
                                                         allergies: formData.get('allergies'),
+                                                        preDescription: formData.get('preDescription'),
                                                         description: formData.get('description'),
                                                         price: formData.get('price'),
                                                         sequence: formData.get('sequence')
@@ -68,11 +69,12 @@ export default function App(){
       .catch(err=>console.log(err))
   }
 
-  function updateForm(id,section,name,allergies,description,price){
+  function updateForm(id,section,name,allergies,preDescription,description,price,sequence){
     setHiddenID(id)
     document.querySelector('#section').value = section
     document.querySelector('#name').value = name
     document.querySelector('#allergies').value = allergies
+    document.querySelector('#pre-description').value = preDescription
     document.querySelector('#description').value = description
     document.querySelector('#price').value = price
     document.querySelector('#sequence').value = sequence
@@ -93,7 +95,8 @@ export default function App(){
           <div key={data._id} className='item'>
             <span className='name'>{data.name}</span>
             {data.allergies ? ` (${data.allergies})` : ''}<br/>
-            {data.description}  {data.price}<br/>
+            {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
+            {data.description}  &nbsp;&nbsp;{data.price}<br/>
             <div className='edit-controls'>
               {data.sequence}<br/>
               <i  className='fa-solid fa-trash-can'
@@ -103,6 +106,7 @@ export default function App(){
                                           data.section,
                                           data.name,
                                           data.allergies,
+                                          data.preDescription,
                                           data.description,
                                           data.price,
                                           data.sequence)}></i>
@@ -118,7 +122,8 @@ export default function App(){
           <div key={data._id} className='item'>
             <span className='name'>{data.name}</span>
             {data.allergies ? ` (${data.allergies})` : ''}<br/>
-            {data.description}  {data.price}<br/>
+            {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
+            {data.description}  &nbsp;&nbsp;{data.price}<br/>
             <div className='edit-controls'>
               {data.sequence}<br/>
               <i  className='fa-solid fa-trash-can'
@@ -128,6 +133,7 @@ export default function App(){
                                           data.section,
                                           data.name,
                                           data.allergies,
+                                          data.preDescription,
                                           data.description,
                                           data.price,
                                           data.sequence)}></i>
@@ -143,7 +149,8 @@ export default function App(){
           <div key={data._id} className='item'>
             <span className='name'>{data.name}</span>
             {data.allergies ? ` (${data.allergies})` : ''}<br/>
-            {data.description}  {data.price}<br/>
+            {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
+            {data.description}  &nbsp;&nbsp;{data.price}<br/>
             <div className='edit-controls'>
               {data.sequence}<br/>
               <i  className='fa-solid fa-trash-can'
@@ -153,6 +160,7 @@ export default function App(){
                                           data.section,
                                           data.name,
                                           data.allergies,
+                                          data.preDescription,
                                           data.description,
                                           data.price,
                                           data.sequence)}></i>
@@ -179,7 +187,8 @@ export default function App(){
           <div key={data._id} className='item'>
             <span className='name'>{data.name}</span>
             {data.allergies ? ` (${data.allergies})` : ''}<br/>
-            {data.description}  {data.price}<br/>
+            {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
+            {data.description}  &nbsp;&nbsp;{data.price}<br/>
             <div className='edit-controls'>
               {data.sequence}<br/>
               <i  className='fa-solid fa-trash-can'
@@ -189,6 +198,7 @@ export default function App(){
                                           data.section,
                                           data.name,
                                           data.allergies,
+                                          data.preDescription,
                                           data.description,
                                           data.price,
                                           data.sequence)}></i>
@@ -216,10 +226,14 @@ export default function App(){
         </label><br/>
         <label>
           Allergies:
-          <input id='allergies' name='allergies' placeholder='allergies' type='text' />
+          <input id='allergies' name='allergies' placeholder='Allergies' type='text' />
         </label><br/>
         <label>
-          Description:<br/>
+        <label>
+          Mini-Description:
+          <input id='pre-description' name='preDescription' placeholder='Mini-Description (optional)' type='text' />
+        </label><br/>
+          Main Description:<br/>
           <textarea id='description' 
                     name='description' 
                     placeholder='Description'

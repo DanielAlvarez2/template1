@@ -22,6 +22,7 @@ app.post('/api/dinner', async(req,res)=>{
             section:req.body.section,
             name:req.body.name,
             allergies:req.body.allergies,
+            preDescription:req.body.preDescription,
             description:req.body.description,
             price:req.body.price,
             sequence:req.body.sequence
@@ -44,9 +45,6 @@ app.delete('/api/dinner/:id',async(req,res)=>{
 app.get('/api/dinner',async(req,res)=>{
     try{
         const allDinner = await Dinner.find().sort({sequence:1})
-        console.log(`
-            All Items From Dinner Menu: 
-            ${allDinner}`)
         res.json(allDinner)
     }catch(err){
         console.log(err)
@@ -67,6 +65,7 @@ app.put('/api/dinner/:id', async(req,res)=>{
             section:req.body.section,
             name:req.body.name,
             allergies:req.body.allergies,
+            preDescription:req.body.preDescription,
             description:req.body.description,
             price:req.body.price,
             sequence:req.body.sequence
