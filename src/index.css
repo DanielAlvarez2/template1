@@ -34,14 +34,16 @@ h1{
 hr{
   position: relative;
   bottom: 7px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
-.item{
+.item,
+.sides-heading{
   color:red;
   border:1px solid green;
-  padding:9px 14px;
+  padding:8px 14px;
   letter-spacing: -0.3px;
 }
+
 .appetizers,
 .entrees{
   flex:1;
@@ -68,6 +70,17 @@ hr{
 .pre-description{
   font-style: italic;
 }
+.pre-description,
+.description{
+  font-family:serif;
+  font-size:15px;
+  letter-spacing: 0.1px;
+}
+.price{
+  font-family: serif;
+  font-weight: 900;
+  font-size: 14px;
+}
 .toggle{
   display:flex;
   align-items: center;
@@ -78,4 +91,8 @@ hr{
 .toggle-icon{
   font-size:30px;
   cursor:pointer;
+}
+.allergies{
+  font-family: serif;
+  font-size:14px;
 }
