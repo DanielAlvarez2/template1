@@ -96,3 +96,20 @@ hr{
   font-family: serif;
   font-size:14px;
 }
+.dinner-menu-footer{
+  display:flex;
+  justify-content: space-between;
+}
+.legal-info{
+  font-family: serif;
+  font-size:12px;
+  width:55%;
+}
+.chef{
+  padding-left: 10px;
+  font-family: FuturaLight;
+  font-weight: 700;
+}
+.dinner-menu-footer{
+  padding-top: 14px;
+}
