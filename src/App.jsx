@@ -180,8 +180,8 @@ export default function App(){
 
   </div>{/* appetizersEntrees */}
 
-  <h2>sides</h2>
-  <div class='sides'>
+  <h2 className='sides-heading'>sides</h2>
+  <div className='sides'>
   {dinnerItems.filter(item=>item.section == 'sides').map(data=>{
         return(
           <div key={data._id} className='item'>
