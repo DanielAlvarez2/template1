@@ -83,6 +83,7 @@ export default function App(){
 
   return(
     <>
+    <div class='toggle no-print'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
 
     <div class='dinnerMenu'>
     <h1>olea</h1>
@@ -231,7 +232,6 @@ export default function App(){
   </div>{/* dinnerMenu */}
  
 
- <div class='toggle no-print'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
  
  <div className='edit-controls'>
   <form action={editForm?updateDinnerItem:addDinnerItem}>
