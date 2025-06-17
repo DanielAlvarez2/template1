@@ -2,7 +2,13 @@
   font-family: 'FuturaLight';
   src:url('./assets/fonts/FuturaLight.otf') format(opentype);
 }
-
+@media print{
+  .no-print{
+      display:none !important;
+      height:0;
+      width:0;
+  }
+}
 *{
   margin: 0;
   padding: 0;

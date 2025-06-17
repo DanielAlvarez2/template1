@@ -227,7 +227,7 @@ export default function App(){
   </div>{/* dinnerMenu */}
  
 
- <div class='toggle'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
+ <div class='toggle no-print'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
  
  <div className='edit-controls'>
   <form action={editForm?updateDinnerItem:addDinnerItem}>
