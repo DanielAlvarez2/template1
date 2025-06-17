@@ -44,7 +44,7 @@ hr{
 }
 .item,
 .sides-heading{
-  padding:10px 14px;
+  padding:9px 37px;
   letter-spacing: -0.3px;
 }
 
@@ -120,6 +120,7 @@ hr{
 .meats,
 .sides,
 .chefs-tasting-menu{
+  font-size:14px;
   border: 1px solid #888;
 }
 .chefs-tasting-menu{
