@@ -94,9 +94,12 @@ export default function App(){
         return(
           <div key={data._id} className='item'>
             <span className='name'>{data.name}</span>
-            {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
+            {data.name == 'jamón ibérico' ? '' : data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
+            
+            
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
-            <span className='description'>{data.description}</span>  
+            {data.description ? <span className='description'>{data.description}</span> : '' }
+            
             <span className='price'> &nbsp;&nbsp;{data.price}</span><br/>
             <div className='edit-controls'>
               {data.sequence}<br/>
