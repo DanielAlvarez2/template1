@@ -157,6 +157,7 @@ export default function App(){
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
             <span className='description'>{data.description}</span>  
             <span className='price'> &nbsp;&nbsp;{data.price}</span><br/>
+            {data.name == 'cochinillo' ? <div style={{fontStyle:'italic'}}>(please allow 40 minutes cooking time)</div> : ''}
             <div className='edit-controls'>
               {data.sequence}<br/>
               <i  className='fa-solid fa-trash-can'
