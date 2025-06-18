@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import {FaPlusCircle} from 'react-icons/fa'
 import {VscSave} from 'react-icons/vsc'
 import { MdOutlineToggleOff } from "react-icons/md"
+import { FaSquareCaretUp } from "react-icons/fa6"
 
 export default function App(){
   const [editMode, setEditMode] = useState(true)
@@ -16,7 +17,7 @@ export default function App(){
       document.querySelector('.toggle-icon').style.transform = 'rotate(180deg)'
       document.querySelectorAll('.edit-controls').forEach(item=>item.style.display = 'none')
       document.querySelector('.dinner-menu').style.height = '14in'
-      document.querySelector('.whitespace-controls').style.display = 'block'
+      document.querySelector('.whitespace-controls').style.display = 'flex'
     }else{
       document.querySelector('.toggle-icon').style.transform = 'rotate(0deg)'
       document.querySelectorAll('.edit-controls').forEach(item=>item.style.display = 'block')
@@ -88,7 +89,15 @@ export default function App(){
     <>
     <div className='menu-controls no-print'>
       <div className='toggle-mode'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview</div> 
-      <div className='whitespace-controls'> vertical - WHITESPACE - horizontal </div>
+      <div className='whitespace-controls'> 
+        <span className='vertical-controls'>
+          <FaSquareCaretUp />0<FaSquareCaretUp style={{transform:'rotate(180deg)'}} />  
+        </span>{/* .vertical-controls */}
+        &nbsp;WHITESPACE&nbsp;  
+        <span className='horizontal-controls'>
+          <FaSquareCaretUp style={{transform:'rotate(270deg)'}} />0<FaSquareCaretUp style={{transform:'rotate(90deg)'}} /> 
+        </span>{/* .horizontal-controls */}
+      </div>{/* .whitespace-controls */}
     </div>
     <div className='dinner-menu'>
     <h1>olea</h1>
