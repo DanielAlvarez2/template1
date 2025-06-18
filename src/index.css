@@ -31,7 +31,7 @@ h1{
 .dinner-menu{
   padding: 20px 40px;
   width:8.5in;
-  height: 14in;
+  height: auto;
   border:1px solid red;
   /* background-image: url('/olea-scan-dinner.jpg'); */
   background-size: 8.5in 14in;
