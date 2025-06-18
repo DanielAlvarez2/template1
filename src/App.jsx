@@ -16,10 +16,12 @@ export default function App(){
       document.querySelector('.toggle-icon').style.transform = 'rotate(180deg)'
       document.querySelectorAll('.edit-controls').forEach(item=>item.style.display = 'none')
       document.querySelector('.dinner-menu').style.height = '14in'
+      document.querySelector('.whitespace-controls').style.display = 'block'
     }else{
       document.querySelector('.toggle-icon').style.transform = 'rotate(0deg)'
       document.querySelectorAll('.edit-controls').forEach(item=>item.style.display = 'block')
       document.querySelector('.dinner-menu').style.height = 'auto'
+      document.querySelector('.whitespace-controls').style.display = 'none'
     }
   }
   const getDinnerItems = ()=>{
@@ -84,8 +86,10 @@ export default function App(){
 
   return(
     <>
-    <div className='toggle no-print'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
-
+    <div className='menu-controls no-print'>
+      <div className='toggle-mode'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview</div> 
+      <div className='whitespace-controls'> vertical - WHITESPACE - horizontal </div>
+    </div>
     <div className='dinner-menu'>
     <h1>olea</h1>
     <hr/>

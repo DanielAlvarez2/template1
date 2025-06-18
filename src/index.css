@@ -85,11 +85,25 @@ hr{
   font-weight: 900;
   font-size: 14px;
 }
-.toggle{
+.menu-controls{
   display:flex;
+  flex-direction: column;
   align-items: center;
   width:8.5in;
   justify-content: center;
+  gap:2px;
+  position: fixed;
+  background: white;
+}
+.whitespace-controls,
+.toggle-mode{
+  font-family: sans-serif;
+  font-weight: 100;
+  display:none;
+}
+.toggle-mode{
+  display:flex;
+  align-items: center;
   gap:10px;
 }
 .toggle-icon{
