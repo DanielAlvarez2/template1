@@ -84,9 +84,9 @@ export default function App(){
 
   return(
     <>
-    <div class='toggle no-print'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
+    <div className='toggle no-print'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
 
-    <div class='dinner-menu'>
+    <div className='dinner-menu'>
     <h1>olea</h1>
     <hr/>
     <div className='appetizersEntrees'>
