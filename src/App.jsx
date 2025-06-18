@@ -15,10 +15,11 @@ export default function App(){
     if(editMode){
       document.querySelector('.toggle-icon').style.transform = 'rotate(180deg)'
       document.querySelectorAll('.edit-controls').forEach(item=>item.style.display = 'none')
+      document.querySelector('.dinner-menu').style.height = '14in'
     }else{
       document.querySelector('.toggle-icon').style.transform = 'rotate(0deg)'
       document.querySelectorAll('.edit-controls').forEach(item=>item.style.display = 'block')
-      
+      document.querySelector('.dinner-menu').style.height = 'auto'
     }
   }
   const getDinnerItems = ()=>{
@@ -85,7 +86,7 @@ export default function App(){
     <>
     <div class='toggle no-print'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview </div>
 
-    <div class='dinnerMenu'>
+    <div class='dinner-menu'>
     <h1>olea</h1>
     <hr/>
     <div className='appetizersEntrees'>
@@ -229,7 +230,7 @@ export default function App(){
 
       </div>
   </div>{/* dinner-menu-footer */}
-  </div>{/* dinnerMenu */}
+  </div>{/* dinner-menu */}
  
 
  
