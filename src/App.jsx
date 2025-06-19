@@ -101,6 +101,7 @@ export default function App(){
     document.querySelector('#price').value = price
     document.querySelector('#sequence').value = sequence
     setEditForm(true)
+    document.querySelector('#dinner-menu-form').scrollIntoView({behavior:'smooth'})
   }
 
   function increaseVertical(){
@@ -376,7 +377,7 @@ export default function App(){
 
  
  <div className='edit-controls'>
-  <form action={editForm?updateDinnerItem:addDinnerItem}>
+  <form action={editForm?updateDinnerItem:addDinnerItem} id='dinner-menu-form'>
         <input type='hidden' id='id' name='id' value={hiddenID} />
         <label>
           Section:
