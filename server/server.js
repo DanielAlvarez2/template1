@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import Dinner from './models/Dinner.js'
+import Pixel from './models/Pixel.js'
 const app = express()
 const PORT = process.env.PORT || 9991
 app.listen(PORT, ()=> console.log(`Server Running on Port: ${PORT}`))
@@ -46,6 +47,45 @@ app.get('/api/dinner',async(req,res)=>{
     try{
         const allDinner = await Dinner.find().sort({sequence:1})
         res.json(allDinner)
+    }catch(err){
+        console.log(err)
+    }
+})
+app.post('/api/whitespace',async(req,res)=>{
+    try{
+        await Pixel.create({
+            direction:'vertical',
+            pixels:0
+        })
+        await Pixel.create({
+            direction:'horizontal',
+            pixels:0
+        })
+        console.log('Whitespace Updated')
+    }catch(err){
+        console.log(err)
+    }
+})
+app.get('/api/whitespace',async(req,res)=>{
+    try{
+        let allWhitespace = await Pixel.find()
+        console.log(allWhitespace)
+        if (!allWhitespace[0]) {
+            try{
+                await Pixel.create({
+                    direction:'vertical',
+                    pixels:0
+                })
+                await Pixel.create({
+                    direction:'horizontal',
+                    pixels:0
+                })
+                allWhitespace = await Pixel.find()
+            }catch(err){
+                console.log(err)
+            }
+        }
+        res.json(allWhitespace)
     }catch(err){
         console.log(err)
     }

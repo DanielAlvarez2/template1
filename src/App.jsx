@@ -37,7 +37,25 @@ export default function App(){
       .then(async()=>await getDinnerItems())
       .catch(err=>console.log(err))
   }
+  
+  const [paddingVertical, setPaddingVertical] = useState(0)
+  const [paddingHorizontal, setPaddingHorizontal] = useState(0)
+  
+  function setWhitespace(json){
+    console.log(json[0].pixels)
+    setPaddingVertical(json[0].pixels)
+    setPaddingHorizontal(json[1].pixels)
+  }
+  
+  const getWhitespace = ()=>{
+    fetch('/api/whitespace')
+      .then(async(res)=>await res.json())
+      .then(async(json)=>await setWhitespace(json))
+      .catch(err=>console.log(err))
+  }
   useEffect(()=>getDinnerItems(),[])
+  useEffect(()=>getWhitespace(),[])
+
   async function addDinnerItem(formData){
     await fetch('/api/dinner',{ method:'POST',
                                 headers:{'Content-Type':'application/json'},
@@ -85,18 +103,25 @@ export default function App(){
     setEditForm(true)
   }
 
+  function increaseVertical(){
+
+  }
   return(
     <>
     <div className='menu-controls no-print'>
       <div className='toggle-mode'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview</div> 
       <div className='whitespace-controls'> 
+        
         <span className='vertical-controls'>
-          <FaSquareCaretUp />0<FaSquareCaretUp style={{transform:'rotate(180deg)'}} />  
+          <FaSquareCaretUp className='caret' onClick={increaseVertical} />{paddingVertical}<FaSquareCaretUp className='caret' style={{transform:'rotate(180deg)'}} />  
         </span>{/* .vertical-controls */}
+        
         &nbsp;WHITESPACE&nbsp;  
+        
         <span className='horizontal-controls'>
-          <FaSquareCaretUp style={{transform:'rotate(270deg)'}} />0<FaSquareCaretUp style={{transform:'rotate(90deg)'}} /> 
+          <FaSquareCaretUp className='caret' style={{transform:'rotate(270deg)'}} />&nbsp;{paddingHorizontal}&nbsp;<FaSquareCaretUp className='caret' style={{transform:'rotate(90deg)'}} /> 
         </span>{/* .horizontal-controls */}
+
       </div>{/* .whitespace-controls */}
     </div>
     <div className='dinner-menu'>
@@ -107,7 +132,7 @@ export default function App(){
       <div className='meats'>
       {dinnerItems.filter(item=>item.section == 'meats').map(data=>{
         return(
-          <div key={data._id} className='item'>
+          <div key={data._id} className='item' style={{}}>
             <span className='name'>{data.name}</span>
             {data.name == 'jamón ibérico' ? '' : data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             
