@@ -159,5 +159,9 @@ hr{
 }
 .chefs-tasting-menu{
   font-family:serif;
-
+}
+#dinner-menu-form{
+  width:8.5in;
+  border:1px solid red;
+  padding:30px 3in;
 }
