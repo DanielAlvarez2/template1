@@ -54,7 +54,6 @@ app.get('/api/dinner',async(req,res)=>{
 app.get('/api/whitespace',async(req,res)=>{
     try{
         let allWhitespace = await Pixel.find()
-        console.log(allWhitespace)
         if (!allWhitespace[0]) {
             try{
                 await Pixel.create({
