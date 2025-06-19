@@ -99,6 +99,17 @@ app.get('/api/dinner/:id', async(req,res)=>{
         console.log(err)
     }
 })
+app.put('/api/whitespace/vertical', async(req,res)=>{
+    try{
+        await Pixel.findOneAndUpdate({direction:'vertical'},{
+            pixels:req.body.pixels
+        })
+        console.log('incremented vertical pixels')
+        res.json(req.body.pixels)
+    }catch(err){
+        console.log(err)
+    }
+})
 app.put('/api/dinner/:id', async(req,res)=>{
     try{
         await Dinner.findByIdAndUpdate({_id:req.params.id},{

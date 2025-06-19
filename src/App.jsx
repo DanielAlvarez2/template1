@@ -38,13 +38,13 @@ export default function App(){
       .catch(err=>console.log(err))
   }
   
-  const [paddingVertical, setPaddingVertical] = useState(0)
-  const [paddingHorizontal, setPaddingHorizontal] = useState(0)
+  const [marginVertical, setMarginVertical] = useState(0)
+  const [marginHorizontal, setMarginHorizontal] = useState(0)
   
   function setWhitespace(json){
     console.log(json[0].pixels)
-    setPaddingVertical(json[0].pixels)
-    setPaddingHorizontal(json[1].pixels)
+    setMarginVertical(json[0].pixels)
+    setMarginHorizontal(json[1].pixels)
   }
   
   const getWhitespace = ()=>{
@@ -104,8 +104,28 @@ export default function App(){
   }
 
   function increaseVertical(){
-
+    const newVertical = marginVertical + 1
+    fetch('/api/whitespace/vertical',{method:'PUT',
+                                      headers:{'Content-Type':'application/json'},
+                                      body:JSON.stringify({pixels:newVertical})
+    })
+      .then(res=>console.log(res))
+      .then(getWhitespace())
+      .catch(err=>console.log(err))
   }
+  function decreaseVertical(){
+    if(marginVertical == 0) return
+    const newVertical = marginVertical - 1
+    fetch('/api/whitespace/vertical',{method:'PUT',
+                                      headers:{'Content-Type':'application/json'},
+                                      body:JSON.stringify({pixels:newVertical})
+    })
+      .then(getWhitespace())
+      .catch(err=>console.log(err))
+  }
+
+
+
   return(
     <>
     <div className='menu-controls no-print'>
@@ -113,13 +133,17 @@ export default function App(){
       <div className='whitespace-controls'> 
         
         <span className='vertical-controls'>
-          <FaSquareCaretUp className='caret' onClick={increaseVertical} />{paddingVertical}<FaSquareCaretUp className='caret' style={{transform:'rotate(180deg)'}} />  
+          <FaSquareCaretUp className='caret' onClick={increaseVertical} />
+            {marginVertical}
+          <FaSquareCaretUp  className='caret' 
+                            style={{transform:'rotate(180deg)'}} 
+                            onClick={decreaseVertical} />  
         </span>{/* .vertical-controls */}
         
         &nbsp;WHITESPACE&nbsp;  
         
         <span className='horizontal-controls'>
-          <FaSquareCaretUp className='caret' style={{transform:'rotate(270deg)'}} />&nbsp;{paddingHorizontal}&nbsp;<FaSquareCaretUp className='caret' style={{transform:'rotate(90deg)'}} /> 
+          <FaSquareCaretUp className='caret' style={{transform:'rotate(270deg)'}} />&nbsp;{marginHorizontal}&nbsp;<FaSquareCaretUp className='caret' style={{transform:'rotate(90deg)'}} /> 
         </span>{/* .horizontal-controls */}
 
       </div>{/* .whitespace-controls */}
@@ -132,7 +156,9 @@ export default function App(){
       <div className='meats'>
       {dinnerItems.filter(item=>item.section == 'meats').map(data=>{
         return(
-          <div key={data._id} className='item' style={{}}>
+          <div  key={data._id} 
+                className='item' 
+                style={{marginTop:marginVertical,marginBottom:marginVertical}}>
             <span className='name'>{data.name}</span>
             {data.name == 'jamón ibérico' ? '' : data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             
@@ -163,7 +189,9 @@ export default function App(){
 
     {dinnerItems.filter(item=>item.section == 'appetizers').map(data=>{
         return(
-          <div key={data._id} className='item'>
+          <div  key={data._id} 
+                className='item'
+                style={{marginTop:marginVertical,marginBottom:marginVertical}}>
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
@@ -191,7 +219,9 @@ export default function App(){
       <div className='entrees'>
       {dinnerItems.filter(item=>item.section == 'entrees').map(data=>{
         return(
-          <div key={data._id} className='item'>
+          <div  key={data._id} 
+                className='item'
+                style={{marginTop:marginVertical,marginBottom:marginVertical}}>
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
@@ -216,7 +246,8 @@ export default function App(){
         )
       })}
 
-      <div className='item chefs-tasting-menu'>
+      <div  className='item chefs-tasting-menu'
+            style={{paddingTop:marginVertical,paddingBottom:marginVertical}}>
         <span className='name'>chef's tasting menu </span> <span style={{fontStyle:'italic'}}>six courses <strong>105</strong> / person<br/>
         <strong>48-hours notice and reservation required</strong></span><br/>
         full table participation<br/>
@@ -231,7 +262,9 @@ export default function App(){
   <div className='sides'>
   {dinnerItems.filter(item=>item.section == 'sides').map(data=>{
         return(
-          <div key={data._id} className='item'>
+          <div  key={data._id} 
+                className='item'
+                style={{marginTop:marginVertical,marginBottom:marginVertical}}>
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
