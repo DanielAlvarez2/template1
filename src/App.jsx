@@ -223,8 +223,10 @@ export default function App(){
             <div className='edit-controls'>
               {data.sequence}<br/>
               <i  className='fa-solid fa-trash-can'
-                  onClick={()=>deleteDinnerItem(data._id)}></i>
+                  onClick={()=>deleteDinnerItem(data._id)}
+                  style={{cursor:'pointer'}}></i>
               <i  className='fa-solid fa-pen'
+                  style={{cursor:'pointer'}}
                   onClick={()=>updateForm(data._id,
                                           data.section,
                                           data.name,
@@ -256,8 +258,10 @@ export default function App(){
             <div className='edit-controls'>
               {data.sequence}<br/>
               <i  className='fa-solid fa-trash-can'
+                  style={{cursor:'pointer'}}
                   onClick={()=>deleteDinnerItem(data._id)}></i>
               <i  className='fa-solid fa-pen'
+                  style={{cursor:'pointer'}}
                   onClick={()=>updateForm(data._id,
                                           data.section,
                                           data.name,
@@ -290,8 +294,10 @@ export default function App(){
             <div className='edit-controls'>
               {data.sequence}<br/>
               <i  className='fa-solid fa-trash-can'
+                  style={{cursor:'pointer'}}
                   onClick={()=>deleteDinnerItem(data._id)}></i>
               <i  className='fa-solid fa-pen'
+                  style={{cursor:'pointer'}}
                   onClick={()=>updateForm(data._id,
                                           data.section,
                                           data.name,
@@ -344,8 +350,10 @@ export default function App(){
             <div className='edit-controls'>
               {data.sequence}<br/>
               <i  className='fa-solid fa-trash-can'
+                  style={{cursor:'pointer'}}
                   onClick={()=>deleteDinnerItem(data._id)}></i>
               <i  className='fa-solid fa-pen'
+                  style={{cursor:'pointer'}}
                   onClick={()=>updateForm(data._id,
                                           data.section,
                                           data.name,
