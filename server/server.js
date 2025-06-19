@@ -51,21 +51,6 @@ app.get('/api/dinner',async(req,res)=>{
         console.log(err)
     }
 })
-app.post('/api/whitespace',async(req,res)=>{
-    try{
-        await Pixel.create({
-            direction:'vertical',
-            pixels:0
-        })
-        await Pixel.create({
-            direction:'horizontal',
-            pixels:0
-        })
-        console.log('Whitespace Updated')
-    }catch(err){
-        console.log(err)
-    }
-})
 app.get('/api/whitespace',async(req,res)=>{
     try{
         let allWhitespace = await Pixel.find()
@@ -90,22 +75,20 @@ app.get('/api/whitespace',async(req,res)=>{
         console.log(err)
     }
 })
+app.put('/api/whitespace/vertical', async(req,res)=>{
+    try{
+        await Pixel.findOneAndUpdate({direction:'vertical'},{pixels:req.body.pixels})
+        console.log('incremented vertical pixels')
+        res.json(req.body.pixels)
+    }catch(err){
+        console.log(err)
+    }
+})
 app.get('/api/dinner/:id', async(req,res)=>{
     try{
         const dinner = await Dinner.findById(req.params.id)
         console.log(dinner)
         res.json(dinner)
-    }catch(err){
-        console.log(err)
-    }
-})
-app.put('/api/whitespace/vertical', async(req,res)=>{
-    try{
-        await Pixel.findOneAndUpdate({direction:'vertical'},{
-            pixels:req.body.pixels
-        })
-        console.log('incremented vertical pixels')
-        res.json(req.body.pixels)
     }catch(err){
         console.log(err)
     }

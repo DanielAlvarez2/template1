@@ -107,7 +107,7 @@ export default function App(){
     const newVertical = marginVertical + 1
     fetch('/api/whitespace/vertical',{method:'PUT',
                                       headers:{'Content-Type':'application/json'},
-                                      body:JSON.stringify({pixels:newVertical})
+                                      body:JSON.stringify({direction:'vertical',pixels:newVertical})
     })
       .then(res=>console.log(res))
       .then(getWhitespace())
@@ -118,7 +118,7 @@ export default function App(){
     const newVertical = marginVertical - 1
     fetch('/api/whitespace/vertical',{method:'PUT',
                                       headers:{'Content-Type':'application/json'},
-                                      body:JSON.stringify({pixels:newVertical})
+                                      body:JSON.stringify({direction:'vertical',pixels:newVertical})
     })
       .then(getWhitespace())
       .catch(err=>console.log(err))
