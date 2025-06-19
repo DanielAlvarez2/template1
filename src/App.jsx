@@ -319,7 +319,13 @@ export default function App(){
 
   </div>{/* appetizersEntrees */}
 
-  <h2 className='sides-heading' style={{paddingLeft:paddingHorizontal}}>sides</h2>
+  <h2 className='sides-heading' 
+      style={{paddingLeft:paddingHorizontal,
+              position:'relative',
+              bottom:'15px'
+      }}>
+  sides
+  </h2>
   <div className='sides'>
   {dinnerItems.filter(item=>item.section == 'sides').map(data=>{
         return(
