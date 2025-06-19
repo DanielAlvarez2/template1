@@ -74,7 +74,7 @@ app.get('/api/whitespace',async(req,res)=>{
         console.log(err)
     }
 })
-app.put('api/whitespace/horizontal',async(req,res)=>{
+app.put('/api/whitespace/horizontal',async(req,res)=>{
     try{
         await Pixel.findOneAndUpdate({direction:'horizontal'},{pixels:req.body.pixels})
         res.json(req.body.pixels)
