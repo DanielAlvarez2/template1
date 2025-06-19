@@ -39,12 +39,12 @@ export default function App(){
   }
   
   const [marginVertical, setMarginVertical] = useState(0)
-  const [marginHorizontal, setMarginHorizontal] = useState(0)
+  const [paddingHorizontal, setPaddingHorizontal] = useState(0)
   
   function setWhitespace(json){
     console.log(json[0].pixels)
     setMarginVertical(json[0].pixels)
-    setMarginHorizontal(json[1].pixels)
+    setPaddingHorizontal(json[1].pixels)
   }
   
   const getWhitespace = ()=>{
@@ -107,7 +107,8 @@ export default function App(){
     const newVertical = marginVertical + 1
     fetch('/api/whitespace/vertical',{method:'PUT',
                                       headers:{'Content-Type':'application/json'},
-                                      body:JSON.stringify({direction:'vertical',pixels:newVertical})
+                                      body:JSON.stringify({ direction:'vertical',
+                                                            pixels:newVertical})
     })
       .then(res=>console.log(res))
       .then(getWhitespace())
@@ -118,11 +119,52 @@ export default function App(){
     const newVertical = marginVertical - 1
     fetch('/api/whitespace/vertical',{method:'PUT',
                                       headers:{'Content-Type':'application/json'},
-                                      body:JSON.stringify({direction:'vertical',pixels:newVertical})
+                                      body:JSON.stringify({ direction:'vertical',
+                                                            pixels:newVertical})
     })
       .then(getWhitespace())
       .catch(err=>console.log(err))
   }
+  function increaseHorizontal(){
+    const newHorizontal = paddingHorizontal + 1
+    fetch('/api/whitespace/horizontal',{method:'PUT',
+                                        headers:{'Content-Type':'application/json'},
+                                        body:JSON.stringify({ direction:'horizontal',
+                                                              pixels:newHorizontal
+                                        })
+    })
+      .then(getWhitespace())
+      .catch(err=>console.log(err))
+  }
+  function decreaseHorizontal(){
+    if (paddingHorizontal == 0) return
+    const newHorizontal = paddingHorizontal - 1
+    fetch('/api/whitespace/horizontal',{method:'PUT',
+                                        headers:{'Content-Type':'application/json'},
+                                        body: JSON.stringify({direction:'horizontal',
+                                                              pixels:newHorizontal})
+    })
+      .then(getWhitespace())
+      .catch(err=>console.log(err))
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -133,7 +175,8 @@ export default function App(){
       <div className='whitespace-controls'> 
         
         <span className='vertical-controls'>
-          <FaSquareCaretUp className='caret' onClick={increaseVertical} />
+          <FaSquareCaretUp  className='caret' 
+                            onClick={increaseVertical} />
             {marginVertical}
           <FaSquareCaretUp  className='caret' 
                             style={{transform:'rotate(180deg)'}} 
@@ -143,7 +186,13 @@ export default function App(){
         &nbsp;WHITESPACE&nbsp;  
         
         <span className='horizontal-controls'>
-          <FaSquareCaretUp className='caret' style={{transform:'rotate(270deg)'}} />&nbsp;{marginHorizontal}&nbsp;<FaSquareCaretUp className='caret' style={{transform:'rotate(90deg)'}} /> 
+          <FaSquareCaretUp  className='caret' 
+                            style={{transform:'rotate(270deg)'}}
+                            onClick={decreaseHorizontal} />
+            &nbsp;{paddingHorizontal}&nbsp;
+          <FaSquareCaretUp  className='caret' 
+                            style={{transform:'rotate(90deg)'}} 
+                            onClick={increaseHorizontal} /> 
         </span>{/* .horizontal-controls */}
 
       </div>{/* .whitespace-controls */}
@@ -158,7 +207,10 @@ export default function App(){
         return(
           <div  key={data._id} 
                 className='item' 
-                style={{marginTop:marginVertical,marginBottom:marginVertical}}>
+                style={{marginTop:marginVertical,
+                        marginBottom:marginVertical,
+                        paddingLeft:paddingHorizontal,
+                        paddingRight:paddingHorizontal}}>
             <span className='name'>{data.name}</span>
             {data.name == 'jamón ibérico' ? '' : data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             
@@ -191,7 +243,10 @@ export default function App(){
         return(
           <div  key={data._id} 
                 className='item'
-                style={{marginTop:marginVertical,marginBottom:marginVertical}}>
+                style={{marginTop:marginVertical,
+                        marginBottom:marginVertical,
+                        paddingLeft:paddingHorizontal,
+                        paddingRight:paddingHorizontal}}>
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
@@ -221,7 +276,10 @@ export default function App(){
         return(
           <div  key={data._id} 
                 className='item'
-                style={{marginTop:marginVertical,marginBottom:marginVertical}}>
+                style={{marginTop:marginVertical,
+                        marginBottom:marginVertical,
+                        paddingLeft:paddingHorizontal,
+                        paddingRight:paddingHorizontal}}>
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
@@ -247,7 +305,10 @@ export default function App(){
       })}
 
       <div  className='item chefs-tasting-menu'
-            style={{paddingTop:marginVertical,paddingBottom:marginVertical}}>
+            style={{paddingTop:marginVertical,
+                    paddingBottom:marginVertical,
+                    paddingLeft:paddingHorizontal,
+                    paddingRight:paddingHorizontal}}>
         <span className='name'>chef's tasting menu </span> <span style={{fontStyle:'italic'}}>six courses <strong>105</strong> / person<br/>
         <strong>48-hours notice and reservation required</strong></span><br/>
         full table participation<br/>
@@ -264,7 +325,10 @@ export default function App(){
         return(
           <div  key={data._id} 
                 className='item'
-                style={{marginTop:marginVertical,marginBottom:marginVertical}}>
+                style={{marginTop:marginVertical,
+                        marginBottom:marginVertical,
+                        paddingLeft:paddingHorizontal,
+                        paddingRight:paddingHorizontal}}>
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
