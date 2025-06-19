@@ -15,7 +15,9 @@
   box-sizing: border-box;
   font-family: serif;
 }
-
+body{
+  background:lightgrey;
+}
 button{
   color:white;
 }
@@ -31,10 +33,11 @@ h1{
   letter-spacing: 1px;
 }
 .dinner-menu{
+  background:white;
   padding: 20px 40px;
   width:8.5in;
   height: auto;
-  border:1px solid red;
+  /* border:1px solid red; */
   /* background-image: url('/olea-scan-dinner.jpg'); */
   background-size: 8.5in 14in;
   background-repeat: no-repeat;
