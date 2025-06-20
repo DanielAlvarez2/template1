@@ -46,6 +46,9 @@ hr{
   position: relative;
   bottom: 7px;
   margin-bottom: 10px;
+  border: none;
+  border-bottom:1px solid #888;
+  height:1px;
 }
 .item,
 .sides-heading{
