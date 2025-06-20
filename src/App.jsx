@@ -385,46 +385,58 @@ export default function App(){
 
  
  <div className='edit-controls'>
+  <div id='dinner-menu-form-wrapper'>
   <form action={editForm?updateDinnerItem:addDinnerItem} id='dinner-menu-form'>
       {editForm ? <h2>Edit Item</h2> : <h2>Create New Item</h2>}
         <input type='hidden' id='id' name='id' value={hiddenID} />
+        
         <label>
-          Section:
+          Section:<br/>
           <input id='section' name='section' placeholder='Section' type='text' />
         </label><br/>
+        
         <label>
-          Name:
+          Name:<br/>
           <input id='name' name='name' placeholder='Name' type='text' />
         </label><br/>
+        
         <label>
-          Allergies:
+          Allergies:<br/>
           <input id='allergies' name='allergies' placeholder='Allergies' type='text' />
         </label><br/>
+        
+        
         <label>
-        <label>
-          Mini-Description:
+          Mini-Description:<br/>
           <input id='pre-description' name='preDescription' placeholder='Mini-Description (optional)' type='text' />
         </label><br/>
+
+        <label>
           Main Description:<br/>
           <textarea id='description' 
                     name='description' 
                     placeholder='Description'
-                    cols='30'
-                    rows='5'></textarea>
+                    // cols='30'
+                    rows='6'></textarea>
           
         </label><br/>
+        
         <label>
-          Price:
+          Price:<br/>
           <input id='price' name='price' placeholder='Price' type='text' />
         </label><br/>
+        
         <label>
-          Sequence:
+          Sequence:<br/>
           <input id='sequence' name='sequence' placeholder='Sequence' type='text' />
         </label><br/>
+        
         <button style={editForm?{background:'blue',color:'white'}:{background:'black',color:'white'}}>
           {editForm?<><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Item</>}
         </button><br/><br/>
+
       </form>
+      </div>{/* dinner-menu-form-wrapper */}
     </div>{/* edit-controls */}
 
     </>
