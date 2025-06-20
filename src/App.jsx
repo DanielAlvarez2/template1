@@ -3,6 +3,7 @@ import {FaPlusCircle} from 'react-icons/fa'
 import {VscSave} from 'react-icons/vsc'
 import { MdOutlineToggleOff } from "react-icons/md"
 import { FaSquareCaretUp } from "react-icons/fa6"
+import { MdClear } from "react-icons/md"
 
 export default function App(){
   const [editMode, setEditMode] = useState(true)
@@ -147,6 +148,16 @@ export default function App(){
     })
       .then(getWhitespace())
       .catch(err=>console.log(err))
+  }
+  function clearForm(){
+    document.querySelector('#id').value = ''
+    document.querySelector('#section').value = ''
+    document.querySelector('#name').value = ''
+    document.querySelector('#allergies').value = ''
+    document.querySelector('#pre-description').value = ''
+    document.querySelector('#description').value = ''
+    document.querySelector('#price').value = ''
+    document.querySelector('#sequence').value = ''
   }
 
 
@@ -408,7 +419,10 @@ export default function App(){
         
         <label>
           Mini-Description:<br/>
-          <input id='pre-description' name='preDescription' placeholder='Mini-Description (optional)' type='text' />
+          <input  id='pre-description' 
+                  name='preDescription' 
+                  placeholder='Mini-Description (optional)' 
+                  type='text' />
         </label><br/>
 
         <label>
@@ -431,14 +445,26 @@ export default function App(){
           <input id='sequence' name='sequence' placeholder='Sequence' type='text' />
         </label><br/>
         
-        <button style={editForm?{background:'blue',color:'white'}:{background:'black',color:'white'}}>
-          {editForm?<><VscSave /> Save Changes</> : <><FaPlusCircle /> Add Item</>}
+        <div id='buttons-wrapper'>
+        <button type='submit' 
+                style={editForm ? {background:'blue',color:'white'} : 
+                                  {background:'black',color:'white'}}>
+          {editForm?
+            <div className='button-flexbox'><VscSave /> <span>Save Changes</span></div> : 
+            <div className='button-flexbox'><FaPlusCircle /> <span>Add Item</span></div>}
         </button><br/><br/>
 
+        <button id='clear-button' onClick={clearForm}>
+          <div className='button-flexbox'>
+            <MdClear /> <span>Clear Form</span>
+          </div>{/* .button-flexbox */}
+        </button>
+        </div>{/* #buttons-wrapper */}
       </form>
       </div>{/* dinner-menu-form-wrapper */}
     </div>{/* edit-controls */}
 
+    <footer>&copy;2025 powered by Toggle Software</footer>
     </>
   )
 }

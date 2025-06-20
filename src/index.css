@@ -179,7 +179,32 @@ form{
   /* border:1px solid green; */
   display:inline-block;
   text-align: left;
+  margin:20px 0 5vh;
 }
 button{
   cursor:pointer;
+  width:100px;
+  height:30px;
+  border-radius: 15px;
+  border:none;
+}
+#clear-button{
+  background:grey;
+  color:black;
+}
+#buttons-wrapper{
+  text-align: center;
+  margin: 15px 0;
+}
+.button-flexbox{
+  display:flex;
+  width:100%;
+  justify-content: center;
+  gap:5px;
+}
+footer{
+  width:8.5in;
+  text-align: center;
+  font-size: 10px;
+  font-family: sans-serif;
 }
