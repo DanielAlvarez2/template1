@@ -464,7 +464,7 @@ export default function App(){
       </div>{/* dinner-menu-form-wrapper */}
     </div>{/* edit-controls */}
 
-    <footer>&copy;2025 powered by Toggle Software</footer>
+    <footer className='no-print'>&copy;2025 powered by Toggle Software</footer>
     </>
   )
 }
