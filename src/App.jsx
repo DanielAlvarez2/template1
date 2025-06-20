@@ -386,6 +386,7 @@ export default function App(){
  
  <div className='edit-controls'>
   <form action={editForm?updateDinnerItem:addDinnerItem} id='dinner-menu-form'>
+      {editForm ? <h2>Edit Item</h2> : <h2>Create New Item</h2>}
         <input type='hidden' id='id' name='id' value={hiddenID} />
         <label>
           Section:

@@ -165,3 +165,6 @@ hr{
   border:1px solid red;
   padding:30px 3in;
 }
+form h2{
+  text-align: center;
+}
