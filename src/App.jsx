@@ -402,8 +402,14 @@ export default function App(){
         <input type='hidden' id='id' name='id' value={hiddenID} />
         
         <label>
-          Section:<br/>
-          <input id='section' name='section' placeholder='Section' type='text' />
+          Section:
+          <select id='section' name='section'>
+            <option disabled value=''>Section...</option>
+            <option value='meats'>Meats</option>
+            <option value='appetizers'>Appetizers</option>
+            <option value='entrees'>Entrées</option>
+            <option value='sides'>Sides</option>
+        </select>
         </label><br/>
         
         <label>
