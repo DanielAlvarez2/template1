@@ -151,7 +151,7 @@ export default function App(){
   }
   function clearForm(){
     document.querySelector('#id').value = ''
-    document.querySelector('#section').value = ''
+    document.querySelector('#section').value = 'disabledSelection'
     document.querySelector('#name').value = ''
     document.querySelector('#allergies').value = ''
     document.querySelector('#pre-description').value = ''
@@ -403,8 +403,8 @@ export default function App(){
         
         <label>
           Section:
-          <select id='section' name='section'>
-            <option disabled value=''>Section...</option>
+          <select id='section' name='section' defaultValue=''>
+            <option selected disabled value=''>Section...</option>
             <option value='meats'>Meats</option>
             <option value='appetizers'>Appetizers</option>
             <option value='entrees'>Entrées</option>
