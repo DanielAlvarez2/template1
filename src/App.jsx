@@ -64,6 +64,7 @@ export default function App(){
                                   section: formData.get('section'),
                                   name: formData.get('name'),
                                   allergies: formData.get('allergies'),
+                                  preDescription: formData.get('preDescription'),
                                   description: formData.get('description'),
                                   price: formData.get('price'),
                                   sequence: formData.get('sequence')
