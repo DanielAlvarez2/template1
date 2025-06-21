@@ -234,9 +234,14 @@ export default function App(){
             <span className='price'> &nbsp;&nbsp;{data.price}</span><br/>
             <div className='edit-controls'>
               {data.sequence}<br/>
+              
+              <button className='trash'>
               <i  className='fa-solid fa-trash-can'
                   onClick={()=>deleteDinnerItem(data._id)}
                   style={{cursor:'pointer'}}></i>
+                   <span>Delete</span>
+              </button>
+              
               <i  className='fa-solid fa-pen'
                   style={{cursor:'pointer'}}
                   onClick={()=>updateForm(data._id,
@@ -455,7 +460,7 @@ export default function App(){
         <div id='buttons-wrapper'>
         <button type='submit' 
                 style={editForm ? {background:'blue',color:'white'} : 
-                                  {background:'black',color:'white'}}>
+                                  {background:'green',color:'white'}}>
           {editForm?
             <div className='button-flexbox'><VscSave /> <span>Save Changes</span></div> : 
             <div className='button-flexbox'><FaPlusCircle /> <span>Add Item</span></div>}
