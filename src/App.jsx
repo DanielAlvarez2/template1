@@ -235,23 +235,26 @@ export default function App(){
             <div className='edit-controls'>
               {data.sequence}<br/>
               
-              <button className='trash'>
-              <i  className='fa-solid fa-trash-can'
-                  onClick={()=>deleteDinnerItem(data._id)}
-                  style={{cursor:'pointer'}}></i>
-                   <span>Delete</span>
+              <button className='trash-button'>
+                <i  className='fa-solid fa-trash-can'
+                    onClick={()=>deleteDinnerItem(data._id)}
+                    style={{cursor:'pointer'}}></i>
+                <span>Delete</span>
               </button>
               
-              <i  className='fa-solid fa-pen'
-                  style={{cursor:'pointer'}}
-                  onClick={()=>updateForm(data._id,
-                                          data.section,
-                                          data.name,
-                                          data.allergies,
-                                          data.preDescription,
-                                          data.description,
-                                          data.price,
-                                          data.sequence)}></i>
+              <button className='edit-button'>
+                <i  className='fa-solid fa-pen'
+                    style={{cursor:'pointer'}}
+                    onClick={()=>updateForm(data._id,
+                                            data.section,
+                                            data.name,
+                                            data.allergies,
+                                            data.preDescription,
+                                            data.description,
+                                            data.price,
+                                            data.sequence)}></i>
+                <span>Edit</span>                
+              </button>
             </div>{/* edit-controls */}
           </div>
         )

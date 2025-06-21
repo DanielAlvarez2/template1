@@ -212,10 +212,15 @@ footer{
   font-family: sans-serif;
   margin-top:30px;
 }
-.trash{
+.trash-button,
+.edit-button{
   background: red;
   display: flex;
   justify-content: center;
   align-items: center;
   gap:5px;
+}
+.edit-button{
+  background: yellow;
+  color:black;
 }
