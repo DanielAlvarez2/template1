@@ -359,7 +359,9 @@ export default function App(){
           <div  key={data._id} 
                 className='item'
                 style={{marginTop:marginVertical,
-                        marginBottom:marginVertical,
+                        marginBottom: !((data.section == 'sides' && data.sequence == 1) || 
+                                      (data.section == 'sides' && data.sequence == 2)) ? 
+                                      marginVertical : '',
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
             <span className='name'>{data.name}</span>
