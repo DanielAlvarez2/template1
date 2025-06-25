@@ -19,6 +19,7 @@ app.use(express.json());
 })()
 app.post('/api/dinner', async(req,res)=>{
     try{
+        const maxSequence = await Dinner.findOne({section:req.body.section}).sort({sequence:-1})
         await Dinner.create({
             section:req.body.section,
             name:req.body.name,
@@ -26,7 +27,7 @@ app.post('/api/dinner', async(req,res)=>{
             preDescription:req.body.preDescription,
             description:req.body.description,
             price:req.body.price,
-            sequence:req.body.sequence
+            sequence:Number(maxSequence) ? Number(maxSequence.sequence) + 1 : 1 
         })
         console.log(`Added to Database: ${req.body.name}`)
         res.json(`Added to Database: ${req.body.name}`)
@@ -51,6 +52,34 @@ app.get('/api/dinner',async(req,res)=>{
         console.log(err)
     }
 })
+
+app.get('/api/dinner/:id', async(req,res)=>{
+    try{
+        const dinner = await Dinner.findById(req.params.id)
+        console.log(dinner)
+        res.json(dinner)
+    }catch(err){
+        console.log(err)
+    }
+})
+app.put('/api/dinner/:id', async(req,res)=>{
+    try{
+        await Dinner.findByIdAndUpdate({_id:req.params.id},{
+            section:req.body.section,
+            name:req.body.name,
+            allergies:req.body.allergies,
+            preDescription:req.body.preDescription,
+            description:req.body.description,
+            price:req.body.price,
+            sequence:req.body.sequence
+        })
+        console.log(`Updated in Database: ${req.body.name}`)
+        res.json(`Updated in Database: ${req.body.name}`)
+    }catch(err){
+        console.log(err)
+    }
+})
+
 app.get('/api/whitespace',async(req,res)=>{
     try{
         let allWhitespace = await Pixel.find()
@@ -91,30 +120,3 @@ app.put('/api/whitespace/vertical', async(req,res)=>{
         console.log(err)
     }
 })
-app.get('/api/dinner/:id', async(req,res)=>{
-    try{
-        const dinner = await Dinner.findById(req.params.id)
-        console.log(dinner)
-        res.json(dinner)
-    }catch(err){
-        console.log(err)
-    }
-})
-app.put('/api/dinner/:id', async(req,res)=>{
-    try{
-        await Dinner.findByIdAndUpdate({_id:req.params.id},{
-            section:req.body.section,
-            name:req.body.name,
-            allergies:req.body.allergies,
-            preDescription:req.body.preDescription,
-            description:req.body.description,
-            price:req.body.price,
-            sequence:req.body.sequence
-        })
-        console.log(`Updated in Database: ${req.body.name}`)
-        res.json(`Updated in Database: ${req.body.name}`)
-    }catch(err){
-        console.log(err)
-    }
-})
-

@@ -67,7 +67,6 @@ export default function App(){
                                   preDescription: formData.get('preDescription'),
                                   description: formData.get('description'),
                                   price: formData.get('price'),
-                                  sequence: formData.get('sequence')
                                 })
     })
       .then(console.log('Added to Database'))
@@ -84,7 +83,6 @@ export default function App(){
                                                         preDescription: formData.get('preDescription'),
                                                         description: formData.get('description'),
                                                         price: formData.get('price'),
-                                                        sequence: formData.get('sequence')
                                                       })
     })
       .then(console.log(`Updated: ${formData.get('name')}`))
@@ -93,7 +91,7 @@ export default function App(){
       .catch(err=>console.log(err))
   }
 
-  function updateForm(id,section,name,allergies,preDescription,description,price,sequence){
+  function updateForm(id,section,name,allergies,preDescription,description,price){
     setHiddenID(id)
     document.querySelector('#section').value = section
     document.querySelector('#name').value = name
@@ -101,7 +99,6 @@ export default function App(){
     document.querySelector('#pre-description').value = preDescription
     document.querySelector('#description').value = description
     document.querySelector('#price').value = price
-    document.querySelector('#sequence').value = sequence
     setEditForm(true)
     document.querySelector('#dinner-menu-form').scrollIntoView({behavior:'smooth'})
   }
@@ -158,7 +155,6 @@ export default function App(){
     document.querySelector('#pre-description').value = ''
     document.querySelector('#description').value = ''
     document.querySelector('#price').value = ''
-    document.querySelector('#sequence').value = ''
   }
 
 
@@ -252,7 +248,7 @@ export default function App(){
                                             data.preDescription,
                                             data.description,
                                             data.price,
-                                            data.sequence)}></i>
+                                            )}></i>
                 <span>Edit</span>                
               </button>
             </div>{/* edit-controls */}
@@ -289,7 +285,7 @@ export default function App(){
                                           data.preDescription,
                                           data.description,
                                           data.price,
-                                          data.sequence)}></i>
+                                          )}></i>
             </div>{/* edit-controls */}
           </div>
         )
@@ -325,7 +321,7 @@ export default function App(){
                                           data.preDescription,
                                           data.description,
                                           data.price,
-                                          data.sequence)}></i>
+                                          )}></i>
             </div>{/* edit-controls */}            
           </div>
         )
@@ -383,7 +379,7 @@ export default function App(){
                                           data.preDescription,
                                           data.description,
                                           data.price,
-                                          data.sequence)}></i>
+                                          )}></i>
             </div>{/* edit-controls */}
           </div>
         )
@@ -413,7 +409,7 @@ export default function App(){
         <input type='hidden' id='id' name='id' value={hiddenID} />
         
         <label>
-          Section:
+          Section:&nbsp;
           <select id='section' name='section' defaultValue=''>
             <option selected disabled value=''>Section...</option>
             <option value='meats'>Meats</option>
@@ -456,12 +452,7 @@ export default function App(){
           Price:<br/>
           <input id='price' name='price' placeholder='Price' type='text' />
         </label><br/>
-        
-        <label>
-          Sequence:<br/>
-          <input id='sequence' name='sequence' placeholder='Sequence' type='text' />
-        </label><br/>
-        
+                
         <div id='buttons-wrapper'>
         <button type='submit' 
                 style={editForm ? {background:'blue',color:'white'} : 
