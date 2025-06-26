@@ -6,6 +6,6 @@ const DinnerSchema = new mongoose.Schema({
     preDescription:{type:String},
     description:{type:String},
     price:{type:String},
-    sequence:{type:String}
+    sequence:{type:Number}
 },{timestamps:true})
 export default mongoose.model('Dinner', DinnerSchema)

@@ -27,7 +27,7 @@ app.post('/api/dinner', async(req,res)=>{
             preDescription:req.body.preDescription,
             description:req.body.description,
             price:req.body.price,
-            sequence: maxSequence ? Number(maxSequence.sequence) + 1 : 1 
+            sequence: maxSequence ? maxSequence.sequence + 1 : 1 
         })
         console.log(`Added to Database: ${req.body.name}`)
         res.json(`Added to Database: ${req.body.name}`)
@@ -39,7 +39,9 @@ app.delete('/api/dinner/:id',async(req,res)=>{
     try{
         const target = await Dinner.findById(req.params.id)
         const section = await Dinner.find({section:target.section})
-        section.forEach(async(item)=> item.sequence > target.sequence && await Dinner.findByIdAndUpdate({_id:item._id},{sequence:Number(item.sequence) - 1}))
+        section.forEach(async(item)=> {
+            item.sequence > target.sequence && await Dinner.findByIdAndUpdate({_id:item._id},{sequence:item.sequence - 1})
+        })
         await Dinner.findByIdAndDelete(req.params.id)
         console.log(`Item Deleted from Database`)
         res.json(`Item Deleted from Database`)
@@ -74,7 +76,6 @@ app.put('/api/dinner/:id', async(req,res)=>{
             preDescription:req.body.preDescription,
             description:req.body.description,
             price:req.body.price,
-            sequence:req.body.sequence
         })
         console.log(`Updated in Database: ${req.body.name}`)
         res.json(`Updated in Database: ${req.body.name}`)
