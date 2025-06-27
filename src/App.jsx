@@ -32,10 +32,10 @@ export default function App(){
       .then(json=>setDinnerItems(json))
       .catch(err=>console.log(err))
   }
-  const deleteDinnerItem = async(id)=>{
-    await fetch(`/api/dinner/${id}`, {method:'DELETE'})
+  const deleteDinnerItem = (id)=>{
+    fetch(`/api/dinner/${id}`, {method:'DELETE'})
       .then(console.log(`Deleted from Database`))
-      .then(async()=>await getDinnerItems())
+      .then(()=>getDinnerItems())
       .catch(err=>console.log(err))
   }
   
