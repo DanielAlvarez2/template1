@@ -450,7 +450,7 @@ export default function App(){
         
         <label>
           Price:<br/>
-          <input id='price' name='price' placeholder='Price' type='text' />
+          <input id='price' name='price' placeholder='Price' type='text' autocomplete='off' />
         </label><br/>
                 
         <div id='buttons-wrapper'>
