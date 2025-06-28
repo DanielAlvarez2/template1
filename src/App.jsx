@@ -177,7 +177,10 @@ export default function App(){
 
 
 
-
+  const lastMeat = dinnerItems.filter(item=>item.section == 'meats').length
+  const lastAppetizer = dinnerItems.filter(item=>item.section == 'appetizers').length
+  const lastEntree = dinnerItems.filter(item=>item.section == 'entrees').length
+  const lastSide = dinnerItems.filter(item=>item.section == 'sides').length
 
   return(
     <>
@@ -223,6 +226,7 @@ export default function App(){
     <div className='appetizersEntrees'>
       <div className='appetizers'>
       <div className='meats'>
+      
       {dinnerItems.filter(item=>item.section == 'meats').map(data=>{
         return(
           <div  key={data._id} 
@@ -231,7 +235,7 @@ export default function App(){
                         marginBottom:marginVertical,
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
-            {data.sequence != 1 && <><div className='move-up'>
+            {data.sequence != 1 && <><div className='move-up edit-controls'>
               <PiArrowFatUpFill style={{cursor:'pointer'}} />
             </div>{/* .move-up */}</>}
             
@@ -274,6 +278,9 @@ export default function App(){
               </button>
 
             </div>{/* .button-flexbox */}
+            {data.sequence != lastMeat && <><div className='move-down'>
+              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+            </div>{/* .move-down */}</>}
             </div>{/* edit-controls */}
           </div>
         )
@@ -289,7 +296,7 @@ export default function App(){
                         marginBottom:marginVertical,
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
-            {data.sequence != 1 && <><div className='move-up'>
+            {data.sequence != 1 && <><div className='move-up edit-controls'>
               <PiArrowFatUpFill style={{cursor:'pointer'}} />
             </div>{/* .move-up */}</>}
             <span className='name'>{data.name}</span>
@@ -327,6 +334,9 @@ export default function App(){
               </button>
 
             </div>{/* .button-flexbox */}
+            {data.sequence != lastAppetizer && <><div className='move-down'>
+              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+            </div>{/* .move-down */}</>}
             </div>{/* edit-controls */}
           </div>
         )
@@ -342,7 +352,7 @@ export default function App(){
                         marginBottom:marginVertical,
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
-            {data.sequence != 1 && <><div className='move-up'>
+            {data.sequence != 1 && <><div className='move-up edit-controls'>
               <PiArrowFatUpFill style={{cursor:'pointer'}} />
             </div>{/* .move-up */}</>}
             <span className='name'>{data.name}</span>
@@ -381,6 +391,9 @@ export default function App(){
               </button>
 
             </div>{/* .button-flexbox */}
+            {data.sequence != lastEntree && <><div className='move-down'>
+              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+            </div>{/* .move-down */}</>}
             </div>{/* edit-controls */}            
           </div>
         )

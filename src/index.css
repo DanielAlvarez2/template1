@@ -234,6 +234,10 @@ footer{
   background: rgb(0, 178, 0);
   color:black;
 }
-.move-up{
+.move-up,
+.move-down{
   text-align: center;
+}
+.move-down{
+  transform: rotate(180deg)
 }
