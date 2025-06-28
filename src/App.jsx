@@ -4,6 +4,7 @@ import {VscSave} from 'react-icons/vsc'
 import { MdOutlineToggleOff } from "react-icons/md"
 import { FaSquareCaretUp } from "react-icons/fa6"
 import { MdClear } from "react-icons/md"
+import { BsFillArchiveFill } from "react-icons/bs"
 
 export default function App(){
   const [editMode, setEditMode] = useState(true)
@@ -206,9 +207,18 @@ export default function App(){
 
       </div>{/* .whitespace-controls */}
     </div>
+
+
+
+
+
+
+
     <div className='dinner-menu'>
     <h1>olea</h1>
     <hr/>
+    
+    
     <div className='appetizersEntrees'>
       <div className='appetizers'>
       <div className='meats'>
@@ -231,13 +241,7 @@ export default function App(){
             <div className='edit-controls'>
               {data.sequence}<br/>
               
-              <button className='trash-button'>
-                <i  className='fa-solid fa-trash-can'
-                    onClick={()=>deleteDinnerItem(data._id)}
-                    style={{cursor:'pointer'}}></i>
-                <span>Delete</span>
-              </button>
-              
+              <div className='button-flexbox'>
               <button className='edit-button'>
                 <i  className='fa-solid fa-pen'
                     style={{cursor:'pointer'}}
@@ -250,7 +254,21 @@ export default function App(){
                                             data.price,
                                             )}></i>
                 <span>Edit</span>                
+                </button>
+              
+              <button className='archive-button'>
+                <BsFillArchiveFill />
+                <span>Archive</span>
               </button>
+
+              <button className='trash-button'>
+                <i  className='fa-solid fa-trash-can'
+                    onClick={()=>deleteDinnerItem(data._id)}
+                    style={{cursor:'pointer'}}></i>
+                <span>Delete</span>
+              </button>
+
+            </div>{/* .button-flexbox */}
             </div>{/* edit-controls */}
           </div>
         )
@@ -273,19 +291,34 @@ export default function App(){
             <span className='price'> &nbsp;&nbsp;{data.price}</span><br/>
             <div className='edit-controls'>
               {data.sequence}<br/>
-              <i  className='fa-solid fa-trash-can'
-                  style={{cursor:'pointer'}}
-                  onClick={()=>deleteDinnerItem(data._id)}></i>
-              <i  className='fa-solid fa-pen'
-                  style={{cursor:'pointer'}}
-                  onClick={()=>updateForm(data._id,
-                                          data.section,
-                                          data.name,
-                                          data.allergies,
-                                          data.preDescription,
-                                          data.description,
-                                          data.price,
-                                          )}></i>
+              <div className='button-flexbox'>
+              <button className='edit-button'>
+                <i  className='fa-solid fa-pen'
+                    style={{cursor:'pointer'}}
+                    onClick={()=>updateForm(data._id,
+                                            data.section,
+                                            data.name,
+                                            data.allergies,
+                                            data.preDescription,
+                                            data.description,
+                                            data.price,
+                                            )}></i>
+                <span>Edit</span>                
+                </button>
+              
+              <button className='archive-button'>
+                <BsFillArchiveFill />
+                <span>Archive</span>
+              </button>
+
+              <button className='trash-button'>
+                <i  className='fa-solid fa-trash-can'
+                    onClick={()=>deleteDinnerItem(data._id)}
+                    style={{cursor:'pointer'}}></i>
+                <span>Delete</span>
+              </button>
+
+            </div>{/* .button-flexbox */}
             </div>{/* edit-controls */}
           </div>
         )
@@ -309,19 +342,34 @@ export default function App(){
             {data.name == 'cochinillo' ? <div style={{fontStyle:'italic'}}>(please allow 40 minutes cooking time)</div> : ''}
             <div className='edit-controls'>
               {data.sequence}<br/>
-              <i  className='fa-solid fa-trash-can'
-                  style={{cursor:'pointer'}}
-                  onClick={()=>deleteDinnerItem(data._id)}></i>
-              <i  className='fa-solid fa-pen'
-                  style={{cursor:'pointer'}}
-                  onClick={()=>updateForm(data._id,
-                                          data.section,
-                                          data.name,
-                                          data.allergies,
-                                          data.preDescription,
-                                          data.description,
-                                          data.price,
-                                          )}></i>
+              <div className='button-flexbox'>
+              <button className='edit-button'>
+                <i  className='fa-solid fa-pen'
+                    style={{cursor:'pointer'}}
+                    onClick={()=>updateForm(data._id,
+                                            data.section,
+                                            data.name,
+                                            data.allergies,
+                                            data.preDescription,
+                                            data.description,
+                                            data.price,
+                                            )}></i>
+                <span>Edit</span>                
+                </button>
+              
+              <button className='archive-button'>
+                <BsFillArchiveFill />
+                <span>Archive</span>
+              </button>
+
+              <button className='trash-button'>
+                <i  className='fa-solid fa-trash-can'
+                    onClick={()=>deleteDinnerItem(data._id)}
+                    style={{cursor:'pointer'}}></i>
+                <span>Delete</span>
+              </button>
+
+            </div>{/* .button-flexbox */}
             </div>{/* edit-controls */}            
           </div>
         )
@@ -367,19 +415,34 @@ export default function App(){
             <span className='price'> &nbsp;&nbsp;{data.price}</span><br/>
             <div className='edit-controls'>
               {data.sequence}<br/>
-              <i  className='fa-solid fa-trash-can'
-                  style={{cursor:'pointer'}}
-                  onClick={()=>deleteDinnerItem(data._id)}></i>
-              <i  className='fa-solid fa-pen'
-                  style={{cursor:'pointer'}}
-                  onClick={()=>updateForm(data._id,
-                                          data.section,
-                                          data.name,
-                                          data.allergies,
-                                          data.preDescription,
-                                          data.description,
-                                          data.price,
-                                          )}></i>
+              <div className='button-flexbox'>
+              <button className='edit-button'>
+                <i  className='fa-solid fa-pen'
+                    style={{cursor:'pointer'}}
+                    onClick={()=>updateForm(data._id,
+                                            data.section,
+                                            data.name,
+                                            data.allergies,
+                                            data.preDescription,
+                                            data.description,
+                                            data.price,
+                                            )}></i>
+                <span>Edit</span>                
+                </button>
+              
+              <button className='archive-button'>
+                <BsFillArchiveFill />
+                <span>Archive</span>
+              </button>
+
+              <button className='trash-button'>
+                <i  className='fa-solid fa-trash-can'
+                    onClick={()=>deleteDinnerItem(data._id)}
+                    style={{cursor:'pointer'}}></i>
+                <span>Delete</span>
+              </button>
+
+            </div>{/* .button-flexbox */}
             </div>{/* edit-controls */}
           </div>
         )
