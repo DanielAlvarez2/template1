@@ -5,6 +5,7 @@ import { MdOutlineToggleOff } from "react-icons/md"
 import { FaSquareCaretUp } from "react-icons/fa6"
 import { MdClear } from "react-icons/md"
 import { BsFillArchiveFill } from "react-icons/bs"
+import { PiArrowFatUpFill } from "react-icons/pi"
 
 export default function App(){
   const [editMode, setEditMode] = useState(true)
@@ -230,6 +231,10 @@ export default function App(){
                         marginBottom:marginVertical,
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
+            {data.sequence != 1 && <><div className='move-up'>
+              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+            </div>{/* .move-up */}</>}
+            
             <span className='name'>{data.name}</span>
             {data.name == 'jamón ibérico' ? '' : data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             
@@ -284,6 +289,9 @@ export default function App(){
                         marginBottom:marginVertical,
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
+            {data.sequence != 1 && <><div className='move-up'>
+              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+            </div>{/* .move-up */}</>}
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
@@ -334,6 +342,9 @@ export default function App(){
                         marginBottom:marginVertical,
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
+            {data.sequence != 1 && <><div className='move-up'>
+              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+            </div>{/* .move-up */}</>}
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
