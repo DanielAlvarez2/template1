@@ -83,6 +83,18 @@ app.put('/api/dinner/:id', async(req,res)=>{
         console.log(err)
     }
 })
+app.put('/api/dinner/up/:id',async(req,res)=>{
+    try{
+        const target = await Dinner.findById(req.params.id)
+        await Dinner.findOneAndUpdate(
+            {section:target.section, sequence:target.sequence - 1}, 
+            {$set: {sequence:target.sequence}})
+        await Dinner.findByIdAndUpdate({_id:req.params.id}, {$set: {sequence:target.sequence - 1}})
+        res.json('Item Moved Up')
+    }catch(err){
+        console.log(err)
+    }
+})
 
 app.get('/api/whitespace',async(req,res)=>{
     try{
