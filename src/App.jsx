@@ -284,7 +284,8 @@ export default function App(){
                 <span>Edit</span>                
                 </button>
               
-              <button onClick={()=>archive(data._id)} className='archive-button'>
+              <button onClick={()=>archive(data._id)} 
+                      className='archive-button'>
                 <BsFillArchiveFill />
                 <span>Archive</span>
               </button>
@@ -342,7 +343,8 @@ export default function App(){
                 <span>Edit</span>                
                 </button>
               
-              <button className='archive-button'>
+              <button onClick={()=>archive(data._id)} 
+                      className='archive-button'>
                 <BsFillArchiveFill />
                 <span>Archive</span>
               </button>
@@ -401,7 +403,8 @@ export default function App(){
                 <span>Edit</span>                
                 </button>
               
-              <button className='archive-button'>
+                <button onClick={()=>archive(data._id)} 
+                        className='archive-button'>
                 <BsFillArchiveFill />
                 <span>Archive</span>
               </button>
@@ -504,7 +507,8 @@ export default function App(){
                 <span>Edit</span>                
                 </button>
               
-              <button className='archive-button'>
+                <button onClick={()=>archive(data._id)} 
+                        className='archive-button'>
                 <BsFillArchiveFill />
                 <span>Archive</span>
               </button>
