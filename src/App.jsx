@@ -242,7 +242,8 @@ export default function App(){
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
             {data.sequence != 1 && <><div className='move-up edit-controls'>
-              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+              <PiArrowFatUpFill onClick={()=>moveUp(data._id)}
+                                style={{cursor:'pointer'}} />
             </div>{/* .move-up */}</>}
             
             <span className='name'>{data.name}</span>
@@ -360,7 +361,8 @@ export default function App(){
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
             {data.sequence != 1 && <><div className='move-up edit-controls'>
-              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+              <PiArrowFatUpFill onClick={()=>moveUp(data._id)}
+                                style={{cursor:'pointer'}} />
             </div>{/* .move-up */}</>}
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
