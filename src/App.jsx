@@ -162,7 +162,7 @@ export default function App(){
     fetch(`/api/dinner/up/${id}`,{method:'PUT',
                                         headers:{'Content-Type':'application/json'}
     })
-    .then(getDinnerItems())
+    .then(()=>getDinnerItems())
     .catch(err=>console.log(err))
   }
 
