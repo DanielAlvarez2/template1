@@ -160,12 +160,18 @@ export default function App(){
   }
   function moveUp(id){
     fetch(`/api/dinner/up/${id}`,{method:'PUT',
-                                        headers:{'Content-Type':'application/json'}
+                                  headers:{'Content-Type':'application/json'}
     })
     .then(()=>getDinnerItems())
     .catch(err=>console.log(err))
   }
-
+  function moveDown(id){
+    fetch(`/api/dinner/down/${id}`,{ method:'PUT',
+                                    headers:{'Content-Type':'application/json'}
+    })
+    .then(()=>getDinnerItems())
+    .catch(err=>console.log(err))
+  }
 
 
 
@@ -286,7 +292,8 @@ export default function App(){
 
             </div>{/* .button-flexbox */}
             {data.sequence != lastMeat && <><div className='move-down'>
-              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+              <PiArrowFatUpFill onClick={()=>moveDown(data._id)} 
+                                style={{cursor:'pointer'}} />
             </div>{/* .move-down */}</>}
             </div>{/* edit-controls */}
           </div>
@@ -343,7 +350,8 @@ export default function App(){
 
             </div>{/* .button-flexbox */}
             {data.sequence != lastAppetizer && <><div className='move-down'>
-              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+              <PiArrowFatUpFill onClick={()=>moveDown(data._id)} 
+                                style={{cursor:'pointer'}} />
             </div>{/* .move-down */}</>}
             </div>{/* edit-controls */}
           </div>
@@ -401,7 +409,8 @@ export default function App(){
 
             </div>{/* .button-flexbox */}
             {data.sequence != lastEntree && <><div className='move-down'>
-              <PiArrowFatUpFill style={{cursor:'pointer'}} />
+              <PiArrowFatUpFill onClick={()=>moveDown(data._id)} 
+                                style={{cursor:'pointer'}} />
             </div>{/* .move-down */}</>}
             </div>{/* edit-controls */}            
           </div>
