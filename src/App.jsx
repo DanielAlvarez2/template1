@@ -166,13 +166,19 @@ export default function App(){
     .catch(err=>console.log(err))
   }
   function moveDown(id){
-    fetch(`/api/dinner/down/${id}`,{ method:'PUT',
+    fetch(`/api/dinner/down/${id}`,{method:'PUT',
                                     headers:{'Content-Type':'application/json'}
     })
     .then(()=>getDinnerItems())
     .catch(err=>console.log(err))
   }
-
+  function archive(id){
+    fetch(`/api/dinner/archive/${id}`,{ method:'PUT',
+                                        headers:{'Content-Type':'application/json'}
+    })
+    .then(()=>getDinnerItems())
+    .catch(err=>console.log(err))
+  }
 
 
 
@@ -278,7 +284,7 @@ export default function App(){
                 <span>Edit</span>                
                 </button>
               
-              <button className='archive-button'>
+              <button onClick={()=>archive(data._id)} className='archive-button'>
                 <BsFillArchiveFill />
                 <span>Archive</span>
               </button>
@@ -455,9 +461,9 @@ export default function App(){
               <div className='edit-controls'>
                 <div className='move-left'>
                   <span style={{position:'absolute',
-                                transform:'rotate(90deg)',
-                                color:'red'}}><PiArrowFatUpFill className='caret' 
-                                                                onClick={()=>moveUp(data._id)} />
+                                transform:'rotate(90deg)'}}>
+                      <PiArrowFatUpFill className='caret' 
+                                        onClick={()=>moveUp(data._id)} />
                   </span>
                 </div>{/* .move-left */}
                 </div>{/* .edit-controls */}
@@ -469,9 +475,9 @@ export default function App(){
                 <div className='move-right'>
                   <span style={{position:'absolute',
                                 transform:'rotate(90deg)',
-                                color:'blue',
-                                zIndex:'100'}}><PiArrowFatUpFill  className='caret' 
-                                                                  onClick={()=>moveDown(data._id)} />
+                                zIndex:'100'}}>
+                      <PiArrowFatUpFill className='caret' 
+                                        onClick={()=>moveDown(data._id)} />
                   </span>
                 </div>{/* .move-right */}
               </div>{/* .edit-controls */}
