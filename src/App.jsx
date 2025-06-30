@@ -450,6 +450,28 @@ export default function App(){
                                       marginVertical : '',
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
+            {data.sequence != 1 && 
+            <>
+              <div className='move-left'>
+                <span style={{position:'absolute',
+                              transform:'rotate(90deg)',
+                              color:'red'}}><PiArrowFatUpFill className='caret' 
+                                                              onClick={()=>moveUp(data._id)} />
+                </span>
+              </div>{/* .move-left */}
+            </>}
+            
+            {data.sequence != lastSide && 
+            <>
+              <div className='move-right'>
+                <span style={{position:'absolute',
+                              transform:'rotate(90deg)',
+                              color:'blue',
+                              zIndex:'100'}}><PiArrowFatUpFill  className='caret' 
+                                                                onClick={()=>moveDown(data._id)} />
+                </span>
+              </div>{/* .move-right */}
+            </>}
             <span className='name'>{data.name}</span>
             {data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
             {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}

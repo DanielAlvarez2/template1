@@ -55,7 +55,9 @@ hr{
   padding:0px 0px;
   letter-spacing: -0.3px;
 }
-
+.item{
+  position: relative;
+}
 .appetizers,
 .entrees{
   flex:1;
@@ -240,4 +242,15 @@ footer{
 }
 .move-down{
   transform: rotate(180deg)
+}
+.move-right{
+  position: absolute;
+  height:100%;
+  right:0;
+}
+.move-left{
+  position:absolute;
+  height:100%;
+  left:0;
+  transform:rotate(180deg);
 }
