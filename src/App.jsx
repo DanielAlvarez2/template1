@@ -208,6 +208,8 @@ export default function App(){
 
   return(
     <>
+    <div className='wrapper'>
+    <div className='wrapper-top'>
     <div className='menu-controls no-print'>
       <div className='toggle-mode'>Edit Mode <MdOutlineToggleOff className='toggle-icon' onClick={flipSwitch} /> Print Preview</div> 
       <div className='whitespace-controls'> 
@@ -618,7 +620,7 @@ export default function App(){
       </form>
       </div>{/* dinner-menu-form-wrapper */}
 
-      {Object.keys(dinnerItems.filter(item=>item.sequence == 0)).length && 
+      {Boolean(Object.keys(dinnerItems.filter(item=>item.sequence == 0)).length) && 
         <>
           <div className='archives'>
             <h2>ARCHIVES</h2>
@@ -684,8 +686,10 @@ export default function App(){
         </>}
       
     </div>{/* edit-controls */}
-
+    
+    </div>{/* .wrapper-top */}
     <footer className='no-print'>&copy;2025 powered by Toggle Software</footer>
+    </div>{/* .wrapper */}
     </>
   )
 }

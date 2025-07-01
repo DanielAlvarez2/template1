@@ -216,7 +216,10 @@ footer{
   text-align: center;
   font-size: 10px;
   font-family: sans-serif;
-  margin-top:30px;
+  padding-top:30px;
+  padding-bottom: 5px;
+  margin-top:auto;
+  
 }
 .trash-button,
 .edit-button,
@@ -266,4 +269,9 @@ footer{
 .archives .item{
   width:50%;
   margin:0 auto;
+}
+.wrapper{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
