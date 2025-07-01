@@ -195,10 +195,10 @@ export default function App(){
 
 
 
-  const lastMeat = dinnerItems.filter(item=>item.section == 'meats').length
-  const lastAppetizer = dinnerItems.filter(item=>item.section == 'appetizers').length
-  const lastEntree = dinnerItems.filter(item=>item.section == 'entrees').length
-  const lastSide = dinnerItems.filter(item=>item.section == 'sides').length
+  const lastMeat = dinnerItems.filter(item=>(item.section == 'meats' && item.sequence > 0)).length
+  const lastAppetizer = dinnerItems.filter(item=>(item.section == 'appetizers' && item.sequence > 0)).length
+  const lastEntree = dinnerItems.filter(item=>(item.section == 'entrees' && item.sequence > 0)).length
+  const lastSide = dinnerItems.filter(item=>(item.section == 'sides' && item.sequence > 0)).length
 
   return(
     <>
@@ -625,10 +625,7 @@ export default function App(){
                         marginBottom:marginVertical,
                         paddingLeft:paddingHorizontal,
                         paddingRight:paddingHorizontal}}>
-            {data.sequence != 1 && <><div className='move-up edit-controls'>
-              <PiArrowFatUpFill onClick={()=>moveUp(data._id)}
-                                style={{cursor:'pointer'}} />
-            </div>{/* .move-up */}</>}
+            
             
             <span className='name'>{data.name}</span>
             {data.name == 'jamón ibérico' ? '' : data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
@@ -659,7 +656,7 @@ export default function App(){
               <button onClick={()=>archive(data._id)} 
                       className='archive-button'>
                 <BsFillArchiveFill />
-                <span>Archive</span>
+                <span>Unarchive</span>
               </button>
 
               <button className='trash-button'>
@@ -670,10 +667,8 @@ export default function App(){
               </button>
 
             </div>{/* .button-flexbox */}
-            {data.sequence != lastMeat && <><div className='move-down'>
-              <PiArrowFatUpFill onClick={()=>moveDown(data._id)} 
-                                style={{cursor:'pointer'}} />
-            </div>{/* .move-down */}</>}
+            
+
             </div>{/* edit-controls */}
           </div>
                   </>

@@ -189,10 +189,13 @@ form{
 }
 button{
   cursor:pointer;
-  width:90px;
+  width:92px;
   height:30px;
   border-radius: 15px;
   border:1px solid black;
+}
+button span{
+  font-size: 13px;
 }
 #clear-button{
   background:grey;
