@@ -611,6 +611,77 @@ export default function App(){
         </div>{/* #buttons-wrapper */}
       </form>
       </div>{/* dinner-menu-form-wrapper */}
+
+      {dinnerItems.filter(item=>item.sequence == 0) && 
+        <>
+          <div className='archives'>
+            <h2>ARCHIVES</h2>
+              {dinnerItems.filter(item=>item.sequence == 0).map(data=>{
+                return(
+                  <>
+          <div  key={data._id} 
+                className='item' 
+                style={{marginTop:marginVertical,
+                        marginBottom:marginVertical,
+                        paddingLeft:paddingHorizontal,
+                        paddingRight:paddingHorizontal}}>
+            {data.sequence != 1 && <><div className='move-up edit-controls'>
+              <PiArrowFatUpFill onClick={()=>moveUp(data._id)}
+                                style={{cursor:'pointer'}} />
+            </div>{/* .move-up */}</>}
+            
+            <span className='name'>{data.name}</span>
+            {data.name == 'jamón ibérico' ? '' : data.allergies ? <><span className='allergies'> ({data.allergies})</span><br/></> : <br/>}
+            
+            
+            {data.preDescription ? <span className='pre-description'>{data.preDescription}; </span> : ''}
+            {data.description ? <span className='description'>{data.description}</span> : '' }
+            
+            <span className='price'> &nbsp;&nbsp;{data.price}</span><br/>
+            <div className='edit-controls'>
+              {data.sequence}<br/>
+              
+              <div className='button-flexbox'>
+              <button className='edit-button'>
+                <i  className='fa-solid fa-pen'
+                    style={{cursor:'pointer'}}
+                    onClick={()=>updateForm(data._id,
+                                            data.section,
+                                            data.name,
+                                            data.allergies,
+                                            data.preDescription,
+                                            data.description,
+                                            data.price,
+                                            )}></i>
+                <span>Edit</span>                
+                </button>
+              
+              <button onClick={()=>archive(data._id)} 
+                      className='archive-button'>
+                <BsFillArchiveFill />
+                <span>Archive</span>
+              </button>
+
+              <button className='trash-button'>
+                <i  className='fa-solid fa-trash-can'
+                    onClick={()=>deleteDinnerItem(data._id)}
+                    style={{cursor:'pointer'}}></i>
+                <span>Delete</span>
+              </button>
+
+            </div>{/* .button-flexbox */}
+            {data.sequence != lastMeat && <><div className='move-down'>
+              <PiArrowFatUpFill onClick={()=>moveDown(data._id)} 
+                                style={{cursor:'pointer'}} />
+            </div>{/* .move-down */}</>}
+            </div>{/* edit-controls */}
+          </div>
+                  </>
+                )}
+              )}
+          </div>{/* .archives */}
+        </>}
+      
     </div>{/* edit-controls */}
 
     <footer className='no-print'>&copy;2025 powered by Toggle Software</footer>

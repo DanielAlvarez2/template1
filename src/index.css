@@ -254,3 +254,13 @@ footer{
   left:0;
   transform:rotate(180deg);
 }
+.archives{
+  width:8.5in;
+}
+.archives h2{
+  text-align: center;
+}
+.archives .item{
+  width:50%;
+  margin:0 auto;
+}
