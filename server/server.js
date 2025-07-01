@@ -124,6 +124,17 @@ app.put('/api/dinner/archive/:id',async(req,res)=>{
         console.log(err)
     }
 })
+app.put('/api/dinner/unarchive/:id',async(req,res)=>{
+    try{
+        const target = await Dinner.findById(req.params.id)
+        const lastInSection = await Dinner.findOne({section:target.section}).sort({sequence:-1})
+        const maxSequence = lastInSection.sequence
+        await Dinner.findByIdAndUpdate({_id:req.params.id},{$set:{sequence:maxSequence + 1}})
+        res.json('Item Unarchived')
+    }catch(err){
+        console.log(err)
+    }
+})
 app.get('/api/whitespace',async(req,res)=>{
     try{
         let allWhitespace = await Pixel.find()

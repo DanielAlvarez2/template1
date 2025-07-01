@@ -179,7 +179,13 @@ export default function App(){
     .then(()=>getDinnerItems())
     .catch(err=>console.log(err))
   }
-
+  function unarchive(id){
+    fetch(`/api/dinner/unarchive/${id}`,{ method:'PUT',
+                                          headers:{'Content-Type':'appliation/json'}
+    })
+    .then(()=>getDinnerItems())
+    .catch(err=>console.log(err))
+  }
 
 
 
@@ -612,7 +618,7 @@ export default function App(){
       </form>
       </div>{/* dinner-menu-form-wrapper */}
 
-      {dinnerItems.filter(item=>item.sequence == 0) && 
+      {Object.keys(dinnerItems.filter(item=>item.sequence == 0)).length && 
         <>
           <div className='archives'>
             <h2>ARCHIVES</h2>
@@ -653,7 +659,7 @@ export default function App(){
                 <span>Edit</span>                
                 </button>
               
-              <button onClick={()=>archive(data._id)} 
+              <button onClick={()=>unarchive(data._id)} 
                       className='archive-button'>
                 <BsFillArchiveFill />
                 <span>Unarchive</span>
