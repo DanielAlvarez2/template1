@@ -245,7 +245,7 @@ export default function App(){
       <div className='appetizers'>
       <div className='meats'>
       
-      {dinnerItems.filter(item=>item.section == 'meats').map(data=>{
+      {dinnerItems.filter(item=>(item.section == 'meats' && item.sequence > 0)).map(data=>{
         return(
           <div  key={data._id} 
                 className='item' 
@@ -309,7 +309,7 @@ export default function App(){
     </div>{/* .meats */}
 
 
-    {dinnerItems.filter(item=>item.section == 'appetizers').map(data=>{
+    {dinnerItems.filter(item=>(item.section == 'appetizers' && item.sequence > 0)).map(data=>{
         return(
           <div  key={data._id} 
                 className='item'
@@ -368,7 +368,7 @@ export default function App(){
       </div>{/* appetizers */}
 
       <div className='entrees'>
-      {dinnerItems.filter(item=>item.section == 'entrees').map(data=>{
+      {dinnerItems.filter(item=>(item.section == 'entrees' && item.sequence > 0)).map(data=>{
         return(
           <div  key={data._id} 
                 className='item'
@@ -449,7 +449,7 @@ export default function App(){
   sides
   </h2>
   <div className='sides'>
-  {dinnerItems.filter(item=>item.section == 'sides').map(data=>{
+  {dinnerItems.filter(item=>(item.section == 'sides' && item.sequence > 0)).map(data=>{
         return(
           <div  key={data._id} 
                 className='item'
