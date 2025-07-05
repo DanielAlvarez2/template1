@@ -60,6 +60,7 @@ export default function App(){
   useEffect(()=>getWhitespace(),[])
 
   async function addDinnerItem(formData){
+    console.log(...formData)
     await fetch('/api/dinner',{ method:'POST',
                                 headers:{'Content-Type':'application/json'},
                                 body: JSON.stringify({
@@ -278,17 +279,16 @@ export default function App(){
               {data.sequence}<br/>
               
               <div className='button-flexbox'>
-              <button className='edit-button'>
-                <i  className='fa-solid fa-pen'
-                    style={{cursor:'pointer'}}
-                    onClick={()=>updateForm(data._id,
-                                            data.section,
-                                            data.name,
-                                            data.allergies,
-                                            data.preDescription,
-                                            data.description,
-                                            data.price,
-                                            )}></i>
+              <button className='edit-button'                     
+                      style={{cursor:'pointer'}}
+                      onClick={()=>updateForm(data._id,
+                                              data.section,
+                                              data.name,
+                                              data.allergies,
+                                              data.preDescription,
+                                              data.description,
+                                              data.price)}>
+                <i  className='fa-solid fa-pen'></i>
                 <span>Edit</span>                
                 </button>
               
@@ -298,10 +298,11 @@ export default function App(){
                 <span>Archive</span>
               </button>
 
-              <button className='trash-button'>
+              <button className='trash-button' 
+                      onClick={()=>deleteDinnerItem(data._id)}
+                      style={{cursor:'pointer'}}>
                 <i  className='fa-solid fa-trash-can'
-                    onClick={()=>deleteDinnerItem(data._id)}
-                    style={{cursor:'pointer'}}></i>
+                    ></i>
                 <span>Delete</span>
               </button>
 
@@ -337,17 +338,16 @@ export default function App(){
             <div className='edit-controls'>
               {data.sequence}<br/>
               <div className='button-flexbox'>
-              <button className='edit-button'>
-                <i  className='fa-solid fa-pen'
-                    style={{cursor:'pointer'}}
-                    onClick={()=>updateForm(data._id,
-                                            data.section,
-                                            data.name,
-                                            data.allergies,
-                                            data.preDescription,
-                                            data.description,
-                                            data.price,
-                                            )}></i>
+              <button className='edit-button'                     
+                      style={{cursor:'pointer'}}
+                      onClick={()=>updateForm(data._id,
+                                              data.section,
+                                              data.name,
+                                              data.allergies,
+                                              data.preDescription,
+                                              data.description,
+                                              data.price)}>
+                <i  className='fa-solid fa-pen'></i>
                 <span>Edit</span>                
                 </button>
               
@@ -357,10 +357,11 @@ export default function App(){
                 <span>Archive</span>
               </button>
 
-              <button className='trash-button'>
+              <button className='trash-button' 
+                      onClick={()=>deleteDinnerItem(data._id)}
+                      style={{cursor:'pointer'}}>
                 <i  className='fa-solid fa-trash-can'
-                    onClick={()=>deleteDinnerItem(data._id)}
-                    style={{cursor:'pointer'}}></i>
+                    ></i>
                 <span>Delete</span>
               </button>
 
@@ -397,17 +398,16 @@ export default function App(){
             <div className='edit-controls'>
               {data.sequence}<br/>
               <div className='button-flexbox'>
-              <button className='edit-button'>
-                <i  className='fa-solid fa-pen'
-                    style={{cursor:'pointer'}}
-                    onClick={()=>updateForm(data._id,
-                                            data.section,
-                                            data.name,
-                                            data.allergies,
-                                            data.preDescription,
-                                            data.description,
-                                            data.price,
-                                            )}></i>
+              <button className='edit-button'                     
+                      style={{cursor:'pointer'}}
+                      onClick={()=>updateForm(data._id,
+                                              data.section,
+                                              data.name,
+                                              data.allergies,
+                                              data.preDescription,
+                                              data.description,
+                                              data.price)}>
+                <i  className='fa-solid fa-pen'></i>
                 <span>Edit</span>                
                 </button>
               
@@ -417,10 +417,11 @@ export default function App(){
                 <span>Archive</span>
               </button>
 
-              <button className='trash-button'>
+              <button className='trash-button' 
+                      onClick={()=>deleteDinnerItem(data._id)}
+                      style={{cursor:'pointer'}}>
                 <i  className='fa-solid fa-trash-can'
-                    onClick={()=>deleteDinnerItem(data._id)}
-                    style={{cursor:'pointer'}}></i>
+                    ></i>
                 <span>Delete</span>
               </button>
 
@@ -501,17 +502,16 @@ export default function App(){
             <div className='edit-controls'>
               {data.sequence}<br/>
               <div className='button-flexbox'>
-              <button className='edit-button'>
-                <i  className='fa-solid fa-pen'
-                    style={{cursor:'pointer'}}
-                    onClick={()=>updateForm(data._id,
-                                            data.section,
-                                            data.name,
-                                            data.allergies,
-                                            data.preDescription,
-                                            data.description,
-                                            data.price,
-                                            )}></i>
+              <button className='edit-button'                     
+                      style={{cursor:'pointer'}}
+                      onClick={()=>updateForm(data._id,
+                                              data.section,
+                                              data.name,
+                                              data.allergies,
+                                              data.preDescription,
+                                              data.description,
+                                              data.price)}>
+                <i  className='fa-solid fa-pen'></i>
                 <span>Edit</span>                
                 </button>
               
@@ -521,10 +521,11 @@ export default function App(){
                 <span>Archive</span>
               </button>
 
-              <button className='trash-button'>
+              <button className='trash-button' 
+                      onClick={()=>deleteDinnerItem(data._id)}
+                      style={{cursor:'pointer'}}>
                 <i  className='fa-solid fa-trash-can'
-                    onClick={()=>deleteDinnerItem(data._id)}
-                    style={{cursor:'pointer'}}></i>
+                    ></i>
                 <span>Delete</span>
               </button>
 
@@ -600,7 +601,12 @@ export default function App(){
         <label>
           Price:<br/>
           <input id='price' name='price' placeholder='Price' type='text' autocomplete='off' />
-        </label><br/>
+        </label><br/><br/>
+
+        <label>
+          Image/Photo (optional):<br/>
+          <input type='file' name='image' />
+        </label>
                 
         <div id='buttons-wrapper'>
         <button type='submit' 
@@ -647,17 +653,16 @@ export default function App(){
               {data.sequence}<br/>
               
               <div className='button-flexbox'>
-              <button className='edit-button'>
-                <i  className='fa-solid fa-pen'
-                    style={{cursor:'pointer'}}
-                    onClick={()=>updateForm(data._id,
-                                            data.section,
-                                            data.name,
-                                            data.allergies,
-                                            data.preDescription,
-                                            data.description,
-                                            data.price,
-                                            )}></i>
+              <button className='edit-button'                     
+                      style={{cursor:'pointer'}}
+                      onClick={()=>updateForm(data._id,
+                                              data.section,
+                                              data.name,
+                                              data.allergies,
+                                              data.preDescription,
+                                              data.description,
+                                              data.price)}>
+                <i  className='fa-solid fa-pen'></i>
                 <span>Edit</span>                
                 </button>
               
@@ -667,10 +672,11 @@ export default function App(){
                 <span>Unarchive</span>
               </button>
 
-              <button className='trash-button'>
+              <button className='trash-button' 
+                      onClick={()=>deleteDinnerItem(data._id)}
+                      style={{cursor:'pointer'}}>
                 <i  className='fa-solid fa-trash-can'
-                    onClick={()=>deleteDinnerItem(data._id)}
-                    style={{cursor:'pointer'}}></i>
+                    ></i>
                 <span>Delete</span>
               </button>
 
