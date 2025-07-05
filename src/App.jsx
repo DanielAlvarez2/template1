@@ -600,13 +600,9 @@ export default function App(){
         
         <label>
           Price:<br/>
-          <input id='price' name='price' placeholder='Price' type='text' autocomplete='off' />
+          <input id='price' name='price' placeholder='Price' type='text' autoComplete='off' />
         </label><br/><br/>
 
-        <label>
-          Image/Photo (optional):<br/>
-          <input type='file' name='image' />
-        </label>
                 
         <div id='buttons-wrapper'>
         <button type='submit' 
