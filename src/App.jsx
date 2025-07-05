@@ -603,9 +603,10 @@ export default function App(){
           <input id='price' name='price' placeholder='Price' type='text' autocomplete='off' />
         </label><br/><br/>
 
+
         <label>
-          Image/Photo (optional):<br/>
-          <input type='file' name='image' />
+          Image/Photo: (optional)<br/>
+          <input type='file' />
         </label>
                 
         <div id='buttons-wrapper'>
